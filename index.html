@@ -7,7 +7,7 @@
   <style>
     :root{--bg:#eef3f9;--card:#fff;--ink:#172033;--text:#536174;--muted:#8190a3;--line:#dbe3ef;--blue:#155eef;--blue2:#e7efff;--green:#16845b;--green2:#e9fbf3;--orange:#b45309;--orange2:#fff4e6;--red:#be123c;--red2:#ffe7ec;--purple:#6d28d9;--purple2:#f1ebff;--dark:#0b1220}
     *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif;line-height:1.55}button,select{font:inherit}button{cursor:pointer}a{color:inherit}
-    .app{min-height:100vh;display:grid;grid-template-columns:256px minmax(0,1fr)}.side{background:linear-gradient(180deg,#0b1220,#102044);color:#fff;padding:20px 15px;position:sticky;top:0;height:100vh}.logo{font-weight:900;font-size:21px}.side-sub{font-size:12px;color:#aebbd0;margin:4px 0 18px}.seller{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:13px;margin-bottom:14px}.seller b{display:block}.seller span{font-size:12px;color:#cbd5e1}.nav-title{font-size:12px;color:#90a4c2;font-weight:900;margin:16px 0 8px}.nav{display:grid;gap:7px}.nav button{border:0;background:transparent;color:#cbd5e1;text-align:left;border-radius:12px;padding:10px 11px;font-weight:800;display:flex;align-items:center;justify-content:space-between;gap:10px}.nav button:hover,.nav button.on{background:#155eef;color:#fff}.nav small{font-weight:900;color:#93c5fd}.sync{position:absolute;left:15px;right:15px;bottom:16px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:12px;font-size:12px;color:#cbd5e1}.sync b{display:block;color:#fff;margin-bottom:4px}
+    .app{min-height:100vh;display:grid;grid-template-columns:270px minmax(0,1fr)}.side{background:#fff;color:#172033;border-right:1px solid var(--line);padding:20px 15px;position:sticky;top:0;height:100vh;overflow:auto}.logo{font-weight:900;font-size:22px;color:#155eef}.side-sub{font-size:12px;color:#64748b;margin:4px 0 18px}.seller{background:#eef4ff;border:1px solid #cfe0ff;border-radius:16px;padding:13px;margin-bottom:14px}.seller b{display:block}.seller span{font-size:12px;color:#536174}.nav-title{font-size:12px;color:#8190a3;font-weight:900;margin:16px 0 8px}.nav{display:grid;gap:6px}.nav button{border:0;background:transparent;color:#415165;text-align:left;border-radius:12px;padding:9px 10px;font-weight:800;display:flex;align-items:center;justify-content:space-between;gap:10px}.nav button:hover,.nav button.on{background:#155eef;color:#fff}.nav small{font-weight:900;color:#8190a3}.nav button.on small,.nav button:hover small{color:#dbeafe}.sync{margin-top:16px;background:#f8fafc;border:1px solid var(--line);border-radius:14px;padding:12px;font-size:12px;color:#64748b}.sync b{display:block;color:#172033;margin-bottom:4px}
     .main{padding:22px;max-width:1480px;width:100%;margin:0 auto}.top{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin-bottom:14px}.title h1{font-size:31px;margin:0 0 6px}.title p{margin:0;color:var(--text);max-width:760px}.account{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;min-width:470px}.acct-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px}.acct-card b{display:block;color:#155eef;font-size:20px}.acct-card span{font-size:12px;color:#64748b}
     .journey-switch{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:14px}.stage-btn{border:1px solid var(--line);background:#fff;border-radius:14px;padding:10px;text-align:left}.stage-btn.on{background:#155eef;color:#fff;border-color:#155eef}.stage-btn b{display:block;font-size:13px}.stage-btn span{display:block;font-size:11px;color:#8190a3;margin-top:2px}.stage-btn.on span{color:#dbeafe}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.tab{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 13px;font-weight:900;color:#536174}.tab.on{background:#155eef;color:#fff;border-color:#155eef}
     .layout{display:grid;grid-template-columns:minmax(0,1fr) 370px;gap:14px}.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:14px;box-shadow:0 10px 26px rgba(15,23,42,.04)}h2{font-size:22px;margin:0 0 12px}h3{font-size:16px;margin:0 0 8px}p{color:var(--text)}.grid{display:grid;gap:12px}.two{grid-template-columns:1fr 1fr}.three{grid-template-columns:repeat(3,1fr)}.four{grid-template-columns:repeat(4,1fr)}
@@ -16,7 +16,7 @@
     .agent-store{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.agent-card{border:1px solid var(--line);background:#fff;border-radius:17px;padding:15px;position:relative}.agent-card.reco{border-color:#93c5fd;background:#eff6ff}.agent-card.locked{background:#f8fafc}.agent-top{display:flex;justify-content:space-between;gap:10px}.avatar{width:44px;height:44px;border-radius:14px;background:#155eef;color:#fff;display:grid;place-items:center;font-weight:900}.agent-card h3{margin-top:9px}.agent-card p{font-size:13px;margin:0 0 10px}.fit{display:inline-flex;border-radius:999px;padding:4px 8px;background:#e0ecff;color:#155eef;font-size:11px;font-weight:900}.fit.green{background:#dcfce7;color:#166534}.fit.orange{background:#ffedd5;color:#9a3412}.fit.purple{background:#ede9fe;color:#5b21b6}.price{font-size:20px;font-weight:900;color:#155eef;margin:8px 0}.btn{border:0;background:#155eef;color:#fff;border-radius:11px;padding:10px 12px;font-weight:900}.btn.green{background:#16845b}.btn.orange{background:#b45309}.btn.gray{background:#64748b}.btn.light{background:#eef4ff;color:#155eef}
     .task{display:grid;grid-template-columns:28px 1fr auto;gap:10px;align-items:start;border-top:1px solid #edf2f7;padding:11px 0}.task:first-child{border-top:0}.dot{width:28px;height:28px;border-radius:50%;background:#dcfce7;color:#166534;display:grid;place-items:center;font-weight:900}.task.todo .dot{background:#e2e8f0;color:#64748b}.task b{display:block}.task small{color:#64748b}.pill{display:inline-flex;padding:5px 8px;border-radius:999px;background:#e0ecff;color:#155eef;font-size:11px;font-weight:900}.pill.green{background:#dcfce7;color:#166534}.pill.orange{background:#ffedd5;color:#9a3412}.pill.purple{background:#ede9fe;color:#5b21b6}
     .plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.plan{border:1px solid var(--line);border-radius:18px;padding:16px;background:#fff}.plan.hot{border-color:#93c5fd;background:#eff6ff;box-shadow:0 12px 26px rgba(21,94,239,.09)}.plan h3{font-size:19px}.plan .money{font-size:28px;font-weight:900;color:#155eef;margin:8px 0}.plan ul{margin:8px 0 14px;padding-left:18px;color:#536174}.plan li{margin:5px 0}
-    .view{display:none}.view.active{display:block}.right{position:sticky;top:18px}.cta{background:linear-gradient(135deg,#0b1220,#155eef);color:#fff;border-radius:18px;padding:18px;margin-bottom:14px}.cta p{color:#dbeafe}.cta .btn{background:#fff;color:#155eef}.news-list{display:grid;gap:10px}.news{border:1px solid var(--line);border-radius:14px;padding:12px;background:#f8fafc}.news b{display:block}.news small{display:block;color:#64748b;margin-top:4px}.stage-panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:14px}.mock-page{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-bottom:14px}.mock-hero{background:linear-gradient(135deg,#0b1220,#155eef);color:#fff;padding:24px}.mock-hero h2{font-size:30px}.mock-hero p{color:#dbeafe;max-width:720px}.mock-body{padding:18px}.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.input{border:1px solid var(--line);background:#f8fafc;border-radius:12px;padding:12px;color:#64748b}.home-button{position:fixed;right:18px;bottom:18px;background:#155eef;color:#fff!important;text-decoration:none;border-radius:999px;padding:11px 16px;font-weight:900;box-shadow:0 10px 28px rgba(21,94,239,.28)}
+    .module-list{display:grid;gap:10px}.module{display:grid;grid-template-columns:42px 1fr auto;gap:12px;align-items:start;border:1px solid var(--line);background:#f8fafc;border-radius:15px;padding:13px}.module .ico{width:42px;height:42px;border-radius:13px;background:#e7efff;color:#155eef;display:grid;place-items:center;font-weight:900}.module b{display:block}.module small{color:#64748b}.view{display:none}.view.active{display:block}.right{position:sticky;top:18px}.cta{background:linear-gradient(135deg,#0b1220,#155eef);color:#fff;border-radius:18px;padding:18px;margin-bottom:14px}.cta p{color:#dbeafe}.cta .btn{background:#fff;color:#155eef}.news-list{display:grid;gap:10px}.news{border:1px solid var(--line);border-radius:14px;padding:12px;background:#f8fafc}.news b{display:block}.news small{display:block;color:#64748b;margin-top:4px}.stage-panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:14px}.mock-page{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-bottom:14px}.mock-hero{background:linear-gradient(135deg,#0b1220,#155eef);color:#fff;padding:24px}.mock-hero h2{font-size:30px}.mock-hero p{color:#dbeafe;max-width:720px}.mock-body{padding:18px}.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.input{border:1px solid var(--line);background:#f8fafc;border-radius:12px;padding:12px;color:#64748b}.home-button{position:fixed;right:18px;bottom:18px;background:#155eef;color:#fff!important;text-decoration:none;border-radius:999px;padding:11px 16px;font-weight:900;box-shadow:0 10px 28px rgba(21,94,239,.28)}
     @media(max-width:1120px){.app{grid-template-columns:1fr}.side{position:relative;height:auto}.sync{position:static;margin-top:16px}.layout,.top,.account,.two,.three,.four,.store-grid,.agent-store,.plan-grid,.journey-switch,.form-grid,.ops-grid{grid-template-columns:1fr}.main{padding:14px}.nav{grid-template-columns:repeat(2,1fr)}}
   </style>
 </head>
@@ -29,12 +29,19 @@
       <div class="nav-title">功能导航</div>
       <div class="nav">
         <button class="on" onclick="show('home',this)">经营首页 <small>83</small></button>
+        <button onclick="show('stores',this)">店铺与授权 <small>5</small></button>
+        <button onclick="show('accounts',this)">账户与回款 <small>$18.6K</small></button>
+        <button onclick="show('payouts',this)">付款与采购 <small>3</small></button>
+        <button onclick="show('fx',this)">换汇与币种 <small>4</small></button>
+        <button onclick="show('cards',this)">费用卡与广告 <small>1.8</small></button>
         <button onclick="show('agents',this)">Agent 商店 <small>6</small></button>
         <button onclick="show('trial',this)">试用任务 <small>5</small></button>
         <button onclick="show('subscribe',this)">订阅升级 <small>Pro</small></button>
         <button onclick="show('capital',this)">资金节奏 <small>AI</small></button>
         <button onclick="show('sentinel',this)">Sentinel 风险 <small>83</small></button>
+        <button onclick="show('reports',this)">报告中心 <small>ROI</small></button>
         <button onclick="show('referral',this)">奖励与权益 <small>VIP</small></button>
+        <button onclick="show('settings',this)">团队与设置 <small>3</small></button>
       </div>
       <div class="nav-title">6 大 Agent</div>
       <div class="nav" id="agentNav"></div>
@@ -58,6 +65,9 @@
 
       <div class="tabs" id="productTabs">
         <button class="tab on" onclick="show('home',this)">经营首页</button>
+        <button class="tab" onclick="show('accounts',this)">账户与回款</button>
+        <button class="tab" onclick="show('payouts',this)">付款采购</button>
+        <button class="tab" onclick="show('fx',this)">换汇币种</button>
         <button class="tab" onclick="show('agents',this)">Agent 商店</button>
         <button class="tab" onclick="show('trial',this)">试用任务</button>
         <button class="tab" onclick="show('subscribe',this)">订阅升级</button>
@@ -182,6 +192,69 @@
             </div>
           </section>
 
+          <section class="view" id="stores">
+            <div class="panel">
+              <h2>店铺与授权</h2>
+              <p>这里不是单纯管理授权，而是告诉客户：哪些数据已进入 Agent OS，哪些缺失会影响分析准确度。</p>
+              <div class="store-grid">
+                <div class="store"><b>Amazon US</b><span class="ok">订单 / 库存 / 回款已同步</span></div>
+                <div class="store"><b>Walmart</b><span class="ok">订单与库存已同步</span></div>
+                <div class="store"><b>eBay</b><span class="ok">订单与退货已同步</span></div>
+                <div class="store"><b>TikTok Shop</b><span class="wait">广告授权待补充</span></div>
+                <div class="store"><b>Shopee</b><span class="ok">订单已同步</span></div>
+              </div>
+              <div class="alert orange" style="margin-top:12px"><strong>Agent 提醒</strong>TK 广告授权缺失会影响 Spend Agent 对全渠道 ROAS 的判断。</div>
+            </div>
+          </section>
+
+          <section class="view" id="accounts">
+            <div class="panel">
+              <h2>账户与回款</h2>
+              <div class="grid three">
+                <div class="signal"><b>$18.6K</b><span>14 天内预计到账。</span></div>
+                <div class="signal"><b>$7.2K</b><span>Amazon 待结算。</span></div>
+                <div class="signal"><b>3 个</b><span>回款账户币种。</span></div>
+              </div>
+              <div class="alert green" style="margin-top:12px"><strong>Capital Agent</strong>已识别 7 天内补货付款早于部分平台回款到账，建议生成 Working Capital Map。</div>
+            </div>
+          </section>
+
+          <section class="view" id="payouts">
+            <div class="panel">
+              <h2>付款与采购</h2>
+              <div class="module-list">
+                <div class="module"><div class="ico">PO</div><div><b>供应商 A · 补货订单</b><small>7 天内需付款 $12.4K，关联 Beauty SKU-A。</small></div><span class="pill orange">待确认</span></div>
+                <div class="module"><div class="ico">SKU</div><div><b>SKU-B 利润偏低</b><small>Deal Agent 建议先复核采购价和平台费用。</small></div><span class="pill purple">复核</span></div>
+                <div class="module"><div class="ico">AP</div><div><b>采购账期表</b><small>3 个供应商账期未录入，影响 TermPay 场景判断。</small></div><span class="pill">补资料</span></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="view" id="fx">
+            <div class="panel">
+              <h2>换汇与币种</h2>
+              <p>Treasury Agent 当前不作为优先购买 Agent，但系统会先把多币种风险展示出来，等业务复杂度上升后再推荐升级。</p>
+              <div class="grid three">
+                <div class="signal"><b>USD</b><span>主回款币种。</span></div>
+                <div class="signal"><b>EUR</b><span>Walmart 部分订单。</span></div>
+                <div class="signal"><b>2.1%</b><span>近 30 天汇损估算。</span></div>
+              </div>
+              <div class="alert purple" style="margin-top:12px"><strong>Treasury Agent</strong>暂不建议优先购买；当多站点和多币种规模上升后，再进入 Diamond 方案。</div>
+            </div>
+          </section>
+
+          <section class="view" id="cards">
+            <div class="panel">
+              <h2>费用卡与广告</h2>
+              <div class="grid three">
+                <div class="signal"><b>$8.4K</b><span>本月广告支出。</span></div>
+                <div class="signal"><b>1.8</b><span>综合 ROAS。</span></div>
+                <div class="signal"><b>$420</b><span>每周疑似低效花费。</span></div>
+              </div>
+              <div class="alert orange" style="margin-top:12px"><strong>Spend Agent</strong>建议暂停 2 个低效广告组，先把预算转向 Beauty SKU-A。</div>
+            </div>
+          </section>
+
           <section class="view" id="trial">
             <div class="panel">
               <h2>14 天 Trial 任务</h2>
@@ -236,6 +309,28 @@
               <div class="grid two">
                 <div class="alert green"><strong>升级 Diamond 后</strong>获得 6 Agent 协同、月度 ROI 复盘、专属顾问解读和优先评估。</div>
                 <div class="alert purple"><strong>Referral 机制</strong>推荐其他卖家完成 Trial 后，可获得订阅权益或专项服务奖励。</div>
+              </div>
+            </div>
+          </section>
+
+          <section class="view" id="reports">
+            <div class="panel">
+              <h2>报告中心</h2>
+              <div class="module-list">
+                <div class="module"><div class="ico">ROI</div><div><b>Trial ROI Proof</b><small>记录试用期间建议采纳、节省支出和潜在增长。</small></div><button class="btn light">查看</button></div>
+                <div class="module"><div class="ico">WK</div><div><b>Weekly Agent Brief</b><small>Insight / Spend / Capital 每周自动生成经营建议。</small></div><button class="btn light">查看</button></div>
+                <div class="module"><div class="ico">CF</div><div><b>Working Capital Map</b><small>回款、库存、采购和备货节点统一呈现。</small></div><button class="btn light">生成</button></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="view" id="settings">
+            <div class="panel">
+              <h2>团队与设置</h2>
+              <div class="module-list">
+                <div class="module"><div class="ico">CEO</div><div><b>陈总</b><small>账户 Owner，可查看订阅、资金节奏和全部报告。</small></div><span class="pill green">Owner</span></div>
+                <div class="module"><div class="ico">OP</div><div><b>运营负责人</b><small>可查看 Insight / Spend 建议并处理任务。</small></div><span class="pill">成员</span></div>
+                <div class="module"><div class="ico">FN</div><div><b>财务负责人</b><small>可查看回款、付款、换汇和 Capital Agent 报告。</small></div><span class="pill">成员</span></div>
               </div>
             </div>
           </section>
@@ -333,15 +428,22 @@
       document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
       if(btn&&btn.classList.contains('tab'))btn.classList.add('on');
       document.querySelectorAll('.side .nav button').forEach(b=>b.classList.remove('on'));
-      const labels={home:'经营首页',agents:'Agent 商店',trial:'试用任务',subscribe:'订阅升级',capital:'资金节奏',sentinel:'Sentinel 风险',referral:'奖励与权益'};
+      const labels={home:'经营首页',stores:'店铺与授权',accounts:'账户与回款',payouts:'付款与采购',fx:'换汇与币种',cards:'费用卡与广告',agents:'Agent 商店',trial:'试用任务',subscribe:'订阅升级',capital:'资金节奏',sentinel:'Sentinel 风险',reports:'报告中心',referral:'奖励与权益',settings:'团队与设置'};
       document.getElementById('rightSuggestion').textContent={
         home:'先完成 Spend Agent 的广告预算重排，再开启 Capital Agent 的 Working Capital Map。',
+        stores:'先补齐 TK 广告授权，让 Spend Agent 能判断全渠道 ROAS。',
+        accounts:'Capital Agent 已识别回款与补货付款错配，建议生成 Working Capital Map。',
+        payouts:'Deal Agent 需要补齐供应商账期和采购订单，才能判断 TermPay 场景。',
+        fx:'Treasury Agent 暂不主推，但建议开启汇率波动提醒。',
+        cards:'Spend Agent 建议暂停低效广告组，把预算转向高潜 SKU。',
         agents:'系统建议先购买 Insight + Spend + Capital，暂不强推 Treasury。',
         trial:'完成 5 个 Trial 任务后，系统会生成 ROI Proof 作为订阅依据。',
         subscribe:'Pro 是当前最匹配方案，先解决增长、广告和资金节奏三个问题。',
         capital:'当前更可能触发 FastPay / MoreFund 场景，但结果需评估后确认。',
         sentinel:'优先处理 eBay 退货率上升和 TK 广告授权缺失，避免影响后续评估。',
-        referral:'形成使用习惯和 ROI Proof 后，再推动 Diamond 和 Referral。'
+        reports:'Trial ROI Proof 和 Weekly Agent Brief 是续费与升级 Diamond 的依据。',
+        referral:'形成使用习惯和 ROI Proof 后，再推动 Diamond 和 Referral。',
+        settings:'建议把运营和财务加入账户，让 Agent 建议能被对应角色处理。'
       }[id]||'';
       document.querySelectorAll('.side .nav button').forEach(b=>{if(b.textContent.includes(labels[id]||''))b.classList.add('on')});
     }
