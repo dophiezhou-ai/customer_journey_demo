@@ -3,162 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dowsure Agent OS · 用户旅程交互 Demo</title>
+  <title>Dowsure Agent OS · 跨境卖家 AI 经营系统</title>
   <style>
     :root{
-      --red:#ec105f;
-      --red2:#fff0f6;
-      --ink:#111827;
-      --text:#4b5565;
-      --muted:#778195;
-      --line:#dbe3ef;
-      --bg:#f6f8fc;
-      --card:#fff;
-      --dark:#171321;
-      --green:#16845b;
-      --orange:#b45309;
-      --blue:#155eef;
-      --purple:#6d28d9;
-      --shadow:0 18px 50px rgba(17,24,39,.10);
+      --red:#ec105f;--red2:#fff0f6;--ink:#101828;--text:#475467;--muted:#667085;--line:#d9e1ec;--bg:#f6f8fc;--card:#fff;--dark:#171321;--green:#16845b;--orange:#b45309;--blue:#155eef;--purple:#6d28d9;--shadow:0 18px 50px rgba(17,24,39,.10)
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif;line-height:1.55}
-    button,input,select{font:inherit}
-    button{cursor:pointer}
-    a{color:inherit;text-decoration:none}
-    p{margin:0;color:var(--text)}
-    h1,h2,h3,h4{margin:0;color:var(--ink)}
-    .top{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(16px)}
-    .top-inner{max-width:1240px;margin:0 auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:1000}
-    .mark{width:36px;height:36px;border-radius:10px;background:linear-gradient(90deg,#ec105f,#ff7275);color:#fff;display:grid;place-items:center;letter-spacing:.03em}
-    .word{font-size:21px;color:var(--red);letter-spacing:.01em}
-    .product{font-size:12px;color:#78324e;background:var(--red2);border:1px solid #ffd0e2;border-radius:999px;padding:4px 8px}
-    .links{display:flex;gap:18px;color:#5b6472;font-weight:900;font-size:14px}
-    .top-actions{display:flex;gap:10px}
-    .btn{border:0;border-radius:8px;background:linear-gradient(90deg,#ec105f,#ff7275);color:#fff;font-weight:1000;padding:11px 16px;display:inline-flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 9px 20px rgba(236,16,95,.20)}
-    .btn.secondary{background:#fff;color:var(--red);border:1px solid #ffd0e2;box-shadow:none}
-    .btn.dark{background:var(--dark);color:#fff}
-    .btn.ghost{background:#f8fafc;color:#344054;border:1px solid var(--line);box-shadow:none}
-    .wrap{max-width:1240px;margin:0 auto;padding:0 22px}
-    .hero{padding:72px 0 48px;background:linear-gradient(180deg,#fff 0%,#fff7fb 72%,#f6f8fc 100%);overflow:hidden;position:relative}
-    .hero:after{content:"";position:absolute;right:-120px;top:95px;width:420px;height:420px;background:rgba(236,16,95,.08);border-radius:80px;transform:rotate(18deg)}
-    .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) 540px;gap:34px;align-items:center}
-    .eyebrow{font-size:12px;font-weight:1000;letter-spacing:.13em;text-transform:uppercase;color:var(--red);margin-bottom:12px}
-    h1{font-size:clamp(42px,6vw,72px);line-height:1.04;letter-spacing:0;margin-bottom:18px}
-    h2{font-size:clamp(28px,4vw,42px);line-height:1.16;margin-bottom:12px}
-    h3{font-size:20px;margin-bottom:8px}
-    .lead{font-size:19px;max-width:760px;color:#5a4650}
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0}
-    .trust{display:flex;gap:10px;flex-wrap:wrap}
-    .trust span{background:#fff;border:1px solid #ffd0e2;border-radius:8px;padding:7px 10px;color:#6b344a;font-size:13px;font-weight:800}
-    .dashboard{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
-    .dash-top{height:48px;background:var(--dark);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 16px}
-    .dash-top b{font-size:14px}
-    .dash-body{padding:16px}
-    .dash-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-    .metric{background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:12px}
-    .metric b{display:block;color:var(--red);font-size:25px;line-height:1.05}
-    .metric span{font-size:12px;color:var(--muted)}
-    .brief{margin-top:12px;border:1px solid #ffd0e2;background:var(--red2);border-radius:12px;padding:13px}
-    .brief strong{display:block;color:#9b174c}
-    .brief p{font-size:13px;color:#5f3448;margin-top:4px}
-    .agent-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-    .agent-pill{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 9px;font-size:12px;font-weight:900;color:#475467}
-    section{padding:56px 0}
-    .section-head{max-width:880px;margin-bottom:24px}
-    .section-head.center{text-align:center;margin-left:auto;margin-right:auto}
-    .grid{display:grid;gap:16px}
-    .two{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .three{grid-template-columns:repeat(3,minmax(0,1fr))}
-    .four{grid-template-columns:repeat(4,minmax(0,1fr))}
-    .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 10px 30px rgba(17,24,39,.05)}
-    .tag{display:inline-flex;border-radius:7px;padding:5px 9px;background:var(--red2);color:var(--red);font-size:12px;font-weight:1000;margin-bottom:10px}
-    .tag.green{background:#e8f7ef;color:var(--green)}
-    .tag.orange{background:#fff4e6;color:var(--orange)}
-    .tag.blue{background:#e9f0ff;color:var(--blue)}
-    .tag.purple{background:#f2ebff;color:var(--purple)}
-    .industry{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-    .news-card{display:grid;grid-template-columns:78px 1fr;gap:12px;align-items:start}
-    .news-date{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:10px;text-align:center;color:var(--red);font-weight:1000}
-    .product-band{background:var(--dark);color:#fff}
-    .product-band h2,.product-band h3{color:#fff}
-    .product-band p{color:#cbd5e1}
-    .agent-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);border-radius:14px;padding:20px}
-    .agent-card .tag{background:rgba(255,255,255,.10);color:#fff}
-    .journey-shell{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:16px}
-    .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(116px,1fr));gap:8px;margin-bottom:14px}
-    .step{border:1px solid var(--line);background:#f8fafc;border-radius:10px;padding:11px;text-align:left;color:#475467}
-    .step.active{background:var(--red);border-color:var(--red);color:#fff}
-    .step b{display:block;font-size:13px;color:inherit}
-    .step span{display:block;font-size:11px;margin-top:3px;color:inherit;opacity:.82}
-    .journey-view{display:grid;grid-template-columns:minmax(0,1fr) 350px;gap:16px}
-    .screen{background:#f8fafc;border:1px solid var(--line);border-radius:16px;overflow:hidden;min-height:560px}
-    .screen-head{background:#fff;border-bottom:1px solid var(--line);padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-    .screen-body{padding:16px}
-    .browser-bar{display:flex;gap:7px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:11px;padding:9px;margin-bottom:12px}
-    .circle{width:9px;height:9px;border-radius:50%;background:#d0d5dd}
-    .url{background:#f2f4f7;border-radius:999px;padding:5px 10px;font-size:12px;color:#667085;flex:1}
-    .stage-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:12px 0}
-    .stage-field{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px}
-    .stage-field b{display:block;font-size:22px;color:var(--red);line-height:1.05}
-    .stage-field span{display:block;font-size:12px;color:var(--muted);margin-top:5px}
-    .panel{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;margin-top:12px}
-    .panel h4{margin:0 0 8px}
-    .agent-output{border-left:4px solid var(--red);background:var(--red2);border-radius:0 12px 12px 0;padding:13px;margin-top:12px}
-    .agent-output strong{display:block;color:#9b174c}
-    .side{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px}
-    .actions{display:grid;gap:10px;margin-top:12px}
-    .action{background:#f8fafc;border:1px solid var(--line);border-radius:11px;padding:12px}
-    .action b{display:block;font-size:14px}
-    .action small{display:block;color:#667085;margin-top:3px}
-    .controls{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
-    .video{background:#101828;color:#fff;border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
-    .video-head{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.12)}
-    .video-body{display:grid;grid-template-columns:1fr 330px;gap:0}
-    .video-stage{min-height:360px;padding:22px;display:grid;align-content:center;background:linear-gradient(135deg,#111827,#2a1232)}
-    .video-stage h3{color:#fff;font-size:32px}
-    .video-stage p{color:#dbe4f0;font-size:16px;max-width:620px;margin-top:10px}
-    .video-side{background:rgba(255,255,255,.06);padding:18px;border-left:1px solid rgba(255,255,255,.12)}
-    .video-side p{color:#dbe4f0}
-    .progress{height:8px;background:rgba(255,255,255,.14);border-radius:999px;overflow:hidden;margin-top:16px}
-    .progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#ec105f,#ff7275);transition:.25s}
-    .pricing{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-    .plan{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:0 10px 30px rgba(17,24,39,.05)}
-    .plan.hot{border-color:#ff9dbc;background:#fffafd}
-    .price{font-size:29px;color:var(--red);font-weight:1000;margin:9px 0}
-    .plan ul{margin:14px 0 18px;padding-left:18px;color:#475467}
-    .plan li{margin:7px 0}
-    .quote{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px}
-    .quote p{font-size:17px;color:#344054}
-    .quote footer{margin-top:14px;color:#667085;font-size:13px}
-    details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px}
-    summary{cursor:pointer;font-weight:1000}
-    details p{margin-top:10px}
-    .faq-list{display:grid;gap:12px}
-    .footer{padding:34px 0;text-align:center;color:#667085;font-size:13px}
-    @media(max-width:1080px){
-      .hero-grid,.journey-view,.video-body{grid-template-columns:1fr}
-      .four{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .video-side{border-left:0;border-top:1px solid rgba(255,255,255,.12)}
-    }
-    @media(max-width:900px){
-      .links{display:none}
-      .top-inner{padding:12px 14px}
-      .wrap{padding:0 14px}
-      .three,.two,.pricing{grid-template-columns:1fr}
-      h1{font-size:40px}
-      .hero{padding-top:40px}
-    }
-    @media(max-width:680px){
-      .word{font-size:18px}
-      .product{display:none}
-      .top-actions .btn.secondary{display:none}
-      .hero-actions .btn{width:100%}
-      .stage-grid,.four{grid-template-columns:1fr}
-      .steps{grid-template-columns:1fr 1fr}
-    }
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif;line-height:1.56}button,input,select{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}p{margin:0;color:var(--text)}h1,h2,h3,h4{margin:0;color:var(--ink)}
+    .top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(16px)}.top-inner{max-width:1240px;margin:0 auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:10px;font-weight:1000}.mark{width:36px;height:36px;border-radius:10px;background:linear-gradient(90deg,#ec105f,#ff7275);color:#fff;display:grid;place-items:center}.word{font-size:21px;color:var(--red);letter-spacing:.01em}.product{font-size:12px;color:#78324e;background:var(--red2);border:1px solid #ffd0e2;border-radius:999px;padding:4px 8px}.links{display:flex;gap:18px;color:#5b6472;font-weight:900;font-size:14px}.top-actions{display:flex;gap:10px}
+    .btn{border:0;border-radius:8px;background:linear-gradient(90deg,#ec105f,#ff7275);color:#fff;font-weight:1000;padding:11px 16px;display:inline-flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 9px 20px rgba(236,16,95,.20)}.btn.secondary{background:#fff;color:var(--red);border:1px solid #ffd0e2;box-shadow:none}.btn.dark{background:var(--dark);color:#fff}.btn.ghost{background:#f8fafc;color:#344054;border:1px solid var(--line);box-shadow:none}.wrap{max-width:1240px;margin:0 auto;padding:0 22px}
+    .hero{padding:74px 0 58px;background:linear-gradient(180deg,#fff 0%,#fff7fb 78%,#f6f8fc 100%);overflow:hidden}.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 560px;gap:36px;align-items:center}.eyebrow{font-size:12px;font-weight:1000;letter-spacing:.13em;text-transform:uppercase;color:var(--red);margin-bottom:12px}h1{font-size:clamp(42px,6vw,72px);line-height:1.04;letter-spacing:0;margin-bottom:18px}h2{font-size:clamp(28px,4vw,42px);line-height:1.16;margin-bottom:12px}h3{font-size:20px;margin-bottom:8px}.lead{font-size:19px;max-width:760px;color:#5a4650}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0}.trust{display:flex;gap:10px;flex-wrap:wrap}.trust span{background:#fff;border:1px solid #ffd0e2;border-radius:8px;padding:7px 10px;color:#6b344a;font-size:13px;font-weight:800}
+    .preview{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);overflow:hidden}.preview-top{height:48px;background:var(--dark);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 16px}.preview-body{padding:16px}.health{display:grid;grid-template-columns:1fr 1fr;gap:10px}.metric{background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:12px}.metric b{display:block;color:var(--red);font-size:25px;line-height:1.05}.metric span{font-size:12px;color:var(--muted)}.brief{margin-top:12px;border:1px solid #ffd0e2;background:var(--red2);border-radius:12px;padding:13px}.brief strong{display:block;color:#9b174c}.brief p{font-size:13px;color:#5f3448;margin-top:4px}.mini-actions{display:grid;gap:8px;margin-top:12px}.mini-actions div{display:flex;justify-content:space-between;gap:10px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px;font-size:13px;color:#475467}.mini-actions b{color:#101828}
+    section{padding:58px 0}.section-head{max-width:880px;margin-bottom:24px}.section-head.center{text-align:center;margin-left:auto;margin-right:auto}.grid{display:grid;gap:16px}.two{grid-template-columns:repeat(2,minmax(0,1fr))}.three{grid-template-columns:repeat(3,minmax(0,1fr))}.four{grid-template-columns:repeat(4,minmax(0,1fr))}.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 10px 30px rgba(17,24,39,.05)}.tag{display:inline-flex;border-radius:7px;padding:5px 9px;background:var(--red2);color:var(--red);font-size:12px;font-weight:1000;margin-bottom:10px}.tag.green{background:#e8f7ef;color:var(--green)}.tag.orange{background:#fff4e6;color:var(--orange)}.tag.blue{background:#e9f0ff;color:var(--blue)}.tag.purple{background:#f2ebff;color:var(--purple)}
+    .product-band{background:var(--dark);color:#fff}.product-band h2,.product-band h3{color:#fff}.product-band p{color:#cbd5e1}.agent-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);border-radius:14px;padding:20px}.agent-card .tag{background:rgba(255,255,255,.10);color:#fff}
+    .demo-shell{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}.demo-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line);background:#fff}.scenario-tabs{display:flex;gap:8px;flex-wrap:wrap}.scenario-tabs button{border:1px solid var(--line);background:#f8fafc;border-radius:999px;padding:8px 11px;font-weight:900;color:#475467}.scenario-tabs button.active{background:var(--red);border-color:var(--red);color:#fff}.workspace{display:grid;grid-template-columns:220px minmax(0,1fr) 330px;min-height:620px}.sidebar{background:#111827;color:#e5e7eb;padding:16px}.side-logo{font-weight:1000;margin-bottom:18px}.side-nav{display:grid;gap:7px}.side-nav div{padding:10px;border-radius:9px;color:#cbd5e1;font-size:14px}.side-nav .active{background:rgba(255,255,255,.12);color:#fff}.main-app{background:#f8fafc;padding:16px}.app-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}.app-title p{font-size:13px}.store-row{display:flex;gap:8px;flex-wrap:wrap}.store{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 9px;font-size:12px;font-weight:900;color:#475467}.panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;margin-top:12px}.panel h4{margin:0 0 8px}.score-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.score{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px}.score b{display:block;color:var(--red);font-size:22px}.score span{font-size:12px;color:var(--muted)}.chat{display:grid;gap:10px}.bubble{max-width:88%;padding:12px;border-radius:14px;font-size:14px}.bubble.user{justify-self:end;background:#111827;color:#fff}.bubble.agent{justify-self:start;background:#fff;border:1px solid var(--line);color:#344054}.recommendation{border-left:4px solid var(--red);background:var(--red2);border-radius:0 12px 12px 0;padding:12px}.recommendation strong{display:block;color:#9b174c}.task-list{display:grid;gap:8px}.task{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:11px;padding:10px}.task input{margin-top:4px}.task b{display:block}.task span{font-size:12px;color:#667085}.right-panel{background:#fff;border-left:1px solid var(--line);padding:16px}.agent-stack{display:grid;gap:10px;margin-top:12px}.agent-item{border:1px solid var(--line);border-radius:12px;padding:12px;background:#f8fafc}.agent-item.active{border-color:#ff9dbc;background:#fff7fb}.agent-item b{display:block}.agent-item span{font-size:12px;color:#667085}.proof{display:grid;gap:10px;margin-top:12px}.proof div{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:10px}.proof b{display:block;color:var(--red)}
+    .journey-lite{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px}.stage-line{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}.stage-line button{border:1px solid var(--line);background:#f8fafc;border-radius:10px;padding:10px;text-align:left}.stage-line button.active{background:var(--red);color:#fff;border-color:var(--red)}.stage-detail{margin-top:14px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;grid-template-columns:1fr 300px;gap:16px}.stage-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stage-card{background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:12px}.stage-card b{display:block;color:var(--red);font-size:20px}.stage-card span{font-size:12px;color:#667085}
+    .video{background:#101828;color:#fff;border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}.video-head{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.12)}.video-body{display:grid;grid-template-columns:minmax(0,1fr) 330px}.video-screen{min-height:400px;background:linear-gradient(135deg,#0b1220,#30122d);padding:18px}.video-screen h3{color:#fff;font-size:28px}.video-screen p{color:#dbe4f0}.video-ui{background:#fff;color:#101828;border-radius:16px;margin-top:16px;padding:14px}.video-ui .chat{margin-top:10px}.video-side{background:rgba(255,255,255,.06);padding:18px;border-left:1px solid rgba(255,255,255,.12)}.video-side p{color:#dbe4f0}.progress{height:8px;background:rgba(255,255,255,.14);border-radius:999px;overflow:hidden;margin-top:14px}.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#ec105f,#ff7275);transition:.25s}
+    .pricing{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.plan{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:0 10px 30px rgba(17,24,39,.05)}.plan.hot{border-color:#ff9dbc;background:#fffafd}.price{font-size:29px;color:var(--red);font-weight:1000;margin:9px 0}.plan ul{margin:14px 0 18px;padding-left:18px;color:#475467}.plan li{margin:7px 0}.quote{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px}.quote p{font-size:17px;color:#344054}.quote footer{margin-top:14px;color:#667085;font-size:13px}.faq-list{display:grid;gap:12px}details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px}summary{cursor:pointer;font-weight:1000}details p{margin-top:10px}.footer{padding:34px 0;text-align:center;color:#667085;font-size:13px}
+    @media(max-width:1120px){.hero-grid,.workspace,.video-body,.stage-detail{grid-template-columns:1fr}.right-panel{border-left:0;border-top:1px solid var(--line)}.sidebar{display:none}.four,.stage-line{grid-template-columns:repeat(2,1fr)}}@media(max-width:900px){.links{display:none}.top-inner{padding:12px 14px}.wrap{padding:0 14px}.three,.two,.pricing,.score-grid,.stage-cards{grid-template-columns:1fr}h1{font-size:40px}.hero{padding-top:40px}}@media(max-width:680px){.word{font-size:18px}.product{display:none}.top-actions .btn.secondary{display:none}.hero-actions .btn{width:100%}.health,.stage-line{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -166,17 +27,9 @@
     <div class="top-inner">
       <a class="brand" href="#"><span class="mark">D</span><span class="word">Dowsure</span><span class="product">Agent OS</span></a>
       <div class="links">
-        <a href="#product">产品</a>
-        <a href="#agents">6 Agents</a>
-        <a href="#journey">用户旅程</a>
-        <a href="#demo-video">演示视频</a>
-        <a href="#pricing">订阅</a>
-        <a href="#faq">FAQ</a>
+        <a href="#value">价值</a><a href="#agents">Agent</a><a href="#experience">产品体验</a><a href="#video">演示</a><a href="#pricing">订阅</a><a href="#faq">FAQ</a>
       </div>
-      <div class="top-actions">
-        <a class="btn secondary" href="#product">了解产品</a>
-        <button class="btn" onclick="selectStage(1)">开始体验</button>
-      </div>
+      <div class="top-actions"><a class="btn secondary" href="#value">了解产品</a><a class="btn" href="#experience">体验 Demo</a></div>
     </div>
   </nav>
 
@@ -184,158 +37,115 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div>
-          <div class="eyebrow">Dowsure Agent OS for Cross-border Sellers</div>
-          <h1>从经营数据里，找到下一步增长动作</h1>
-          <p class="lead">Dowsure Agent OS 面向跨境电商卖家，把店铺营收、广告、库存、采购、回款、账户和风险信号连接起来，由 6 大 Agent 输出经营诊断、行动建议和持续订阅服务。</p>
-          <div class="hero-actions">
-            <button class="btn" onclick="selectStage(0)">进入用户旅程 Demo</button>
-            <a class="btn secondary" href="#demo-video">观看演示分镜</a>
-          </div>
-          <div class="trust">
-            <span>免费经营诊断</span>
-            <span>14 天 Trial 验证价值</span>
-            <span>Weekly Agent Brief</span>
-            <span>Pro / Diamond 订阅升级</span>
-          </div>
+          <div class="eyebrow">AI Operating System for Cross-border Sellers</div>
+          <h1>让卖家少盯表，多做对的经营动作</h1>
+          <p class="lead">Dowsure Agent OS 将店铺经营数据转化为清晰的增长、支出、库存、回款和风险建议，帮助跨境卖家每天知道优先做什么。</p>
+          <div class="hero-actions"><a class="btn" href="#experience">进入交互 Demo</a><a class="btn secondary" href="#video">观看 90 秒演示</a></div>
+          <div class="trust"><span>免费诊断</span><span>基于店铺数据分析</span><span>14 天 Trial</span><span>Weekly Agent Brief</span></div>
         </div>
-        <div class="dashboard">
-          <div class="dash-top"><b>Nova Beauty · Agent Command Center</b><span>Live Demo</span></div>
-          <div class="dash-body">
-            <div class="dash-grid">
-              <div class="metric"><b>$92K</b><span>近 30 天 GMV</span></div>
-              <div class="metric"><b>21 天</b><span>库存覆盖</span></div>
-              <div class="metric"><b>1.8</b><span>综合 ROAS</span></div>
-              <div class="metric"><b>$28K</b><span>旺季备货缺口</span></div>
+        <div class="preview">
+          <div class="preview-top"><b>Agent Brief · 今日优先事项</b><span>Nova Beauty</span></div>
+          <div class="preview-body">
+            <div class="health">
+              <div class="metric"><b>$92K</b><span>近 30 天 GMV</span></div><div class="metric"><b>21 天</b><span>库存覆盖</span></div><div class="metric"><b>+32%</b><span>广告预算变化</span></div><div class="metric"><b>$28K</b><span>备货资金缺口</span></div>
             </div>
-            <div class="brief"><strong>今日 Agent 建议</strong><p>广告预算上升 32%，但库存覆盖只剩 21 天。建议先暂停低效广告组，再生成资金节奏图判断补货窗口。</p></div>
-            <div class="agent-row">
-              <span class="agent-pill">Insight</span><span class="agent-pill">Spend</span><span class="agent-pill">Capital</span><span class="agent-pill">Sentinel</span>
-            </div>
+            <div class="brief"><strong>Agent 建议</strong><p>暂停 2 个低效广告组；把预算转向高转化 SKU；生成资金节奏图判断补货窗口。</p></div>
+            <div class="mini-actions"><div><b>今天要做</b><span>3 项</span></div><div><b>预计影响</b><span>减少无效花费</span></div><div><b>下一步</b><span>开启 Trial</span></div></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="industry">
+    <section id="value">
       <div class="wrap">
-        <div class="section-head">
-          <div class="eyebrow">Market Context</div>
-          <h2>跨境卖家正在从“看报表”进入“要行动建议”的阶段</h2>
-          <p>官网首页不先讲复杂产品，而是让卖家看到与自己经营相关的问题：广告成本、库存周转、回款周期、供应商付款和多平台管理。</p>
-        </div>
+        <div class="section-head center"><div class="eyebrow">Why Dowsure</div><h2>先确认问题，再体验 Agent OS</h2><p>卖家最关心的不是功能列表，而是系统能不能看懂自己的经营情况、给出可执行建议，并持续带来价值。</p></div>
         <div class="grid three">
-          <div class="card news-card"><div class="news-date">01</div><div><h3>广告效率压力</h3><p>流量成本上升后，卖家更需要判断哪些 SKU 值得继续投，哪些支出正在吃掉利润。</p></div></div>
-          <div class="card news-card"><div class="news-date">02</div><div><h3>资金节奏压力</h3><p>平台回款、广告投放、库存补货和供应商账期错位，直接影响旺季增长。</p></div></div>
-          <div class="card news-card"><div class="news-date">03</div><div><h3>多平台管理压力</h3><p>订单、账户、库存、币种、风险分散在不同系统，老板需要统一经营判断。</p></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="product">
-      <div class="wrap">
-        <div class="section-head center">
-          <div class="eyebrow">What is Agent OS</div>
-          <h2>它不是一个报表工具，而是一套 AI 经营作业系统</h2>
-          <p>客户从官网理解产品，再进入免费诊断。注册并完成企业资料后，连接店铺经营数据，系统才会基于真实业务情况给出更准确的 Agent 建议。</p>
-        </div>
-        <div class="grid three">
-          <div class="card"><span class="tag">经营诊断</span><h3>先识别问题</h3><p>把营收、广告、库存、回款、采购和风险信号放在同一张经营面板里。</p></div>
-          <div class="card"><span class="tag green">Agent 建议</span><h3>再给出动作</h3><p>每条建议对应数据依据、影响判断、执行动作和复盘指标，避免只看不做。</p></div>
-          <div class="card"><span class="tag orange">持续订阅</span><h3>最后形成习惯</h3><p>通过 Weekly Agent Brief、顾问解读和 ROI Proof，推动续费、升级和转介绍。</p></div>
+          <div class="card"><span class="tag">看得懂</span><h3>把分散数据合成经营判断</h3><p>营收、广告、库存、回款、采购和风险不再分散在不同表格里。</p></div>
+          <div class="card"><span class="tag green">做得动</span><h3>每条建议都有下一步</h3><p>Agent 不只提示异常，还会给出可执行动作、优先级和复盘指标。</p></div>
+          <div class="card"><span class="tag orange">留得住</span><h3>用结果推动续费和升级</h3><p>客户每周看到 Agent Brief 和 ROI Proof，才会形成持续订阅习惯。</p></div>
         </div>
       </div>
     </section>
 
     <section class="product-band" id="agents">
       <div class="wrap">
-        <div class="section-head">
-          <div class="eyebrow">Six Agent Roles</div>
-          <h2>6 大 Agent，对应 6 类经营场景</h2>
-          <p>不是所有卖家一开始都需要全套 Agent。系统会根据客户阶段和经营压力推荐合适组合。</p>
-        </div>
+        <div class="section-head"><div class="eyebrow">Six Agents</div><h2>6 大 Agent，各自负责一个经营场景</h2><p>客户不需要理解复杂架构，只需要知道哪个 Agent 能帮他解决当前问题。</p></div>
         <div class="grid three">
-          <div class="agent-card"><span class="tag">Insight Agent</span><h3>增长机会</h3><p>识别高潜 SKU、类目趋势、关键词机会和可放量方向。</p></div>
-          <div class="agent-card"><span class="tag">Spend Agent</span><h3>支出效率</h3><p>分析广告、物流、平台费用和低效花费，发现利润被吃掉的位置。</p></div>
-          <div class="agent-card"><span class="tag">Deal Agent</span><h3>采购与账期</h3><p>分析供应商账期、采购订单、补货节奏和 SKU 利润。</p></div>
+          <div class="agent-card"><span class="tag">Insight Agent</span><h3>增长机会</h3><p>找高潜 SKU、类目趋势和可放量方向。</p></div>
+          <div class="agent-card"><span class="tag">Spend Agent</span><h3>支出效率</h3><p>发现广告、物流和平台费用中的低效支出。</p></div>
           <div class="agent-card"><span class="tag">Capital Agent</span><h3>资金节奏</h3><p>判断回款、库存、广告和备货之间的现金流错配。</p></div>
-          <div class="agent-card"><span class="tag">Treasury Agent</span><h3>账户与币种</h3><p>分析多币种、账户余额、换汇和资金调度效率。</p></div>
-          <div class="agent-card"><span class="tag">Sentinel Agent</span><h3>风险守护</h3><p>监控店铺健康、异常波动、资料完整度和服务边界。</p></div>
+          <div class="agent-card"><span class="tag">Deal Agent</span><h3>采购与账期</h3><p>分析采购付款、供应商账期和补货节奏。</p></div>
+          <div class="agent-card"><span class="tag">Treasury Agent</span><h3>账户与币种</h3><p>看多平台、多币种、多账户的资金效率。</p></div>
+          <div class="agent-card"><span class="tag">Sentinel Agent</span><h3>风险守护</h3><p>识别店铺异常、资料缺口和服务边界。</p></div>
         </div>
       </div>
     </section>
 
     <section>
       <div class="wrap">
-        <div class="section-head">
-          <div class="eyebrow">Customer Proof</div>
-          <h2>客户案例先建立信任，Agent Brief 再推动试用和付费</h2>
-        </div>
+        <div class="section-head"><div class="eyebrow">Customer Scenarios</div><h2>自然流量转化，靠的是客户看到自己的场景</h2></div>
         <div class="grid three">
-          <div class="quote"><span class="tag">L4 小卖家</span><p>“以前只知道回款慢，现在知道回款、广告和补货是同一个现金流问题。”</p><footer>宠物配件 · Amazon US · 月 GMV $18K</footer></div>
-          <div class="quote"><span class="tag green">L3 成长卖家</span><p>“Agent Brief 把低效广告和库存风险放到一起看，运营终于知道先改哪里。”</p><footer>Beauty 个护 · Amazon + Shopify · 月 GMV $90K</footer></div>
-          <div class="quote"><span class="tag orange">L2 上沿 SME</span><p>“我们需要的不只是报表，而是多平台、采购、账期和资金节奏的统一判断。”</p><footer>家居类目 · 多平台 · 月 GMV $300K</footer></div>
+          <div class="quote"><span class="tag">广告费变贵</span><p>“我想知道哪些广告该停，哪些 SKU 还值得继续投。”</p><footer>Beauty 个护 · Amazon + Shopify</footer></div>
+          <div class="quote"><span class="tag green">旺季备货</span><p>“销售机会来了，但回款、库存和供应商付款总是错位。”</p><footer>家居类目 · 多平台卖家</footer></div>
+          <div class="quote"><span class="tag orange">多平台经营</span><p>“我每天看很多报表，但很难判断今天先处理什么。”</p><footer>宠物配件 · Amazon / eBay</footer></div>
         </div>
       </div>
     </section>
 
-    <section id="journey">
+    <section id="experience">
       <div class="wrap">
-        <div class="section-head">
-          <div class="eyebrow">Interactive Journey</div>
-          <h2>可点击用户旅程：从陌生访客到 Diamond 用户</h2>
-          <p>点击上方阶段或右侧下一步，模拟一个跨境卖家如何从官网了解 Dowsure，到试用 Agent OS、付费订阅、升级和转介绍。</p>
-        </div>
-        <div class="journey-shell">
-          <div class="steps" id="steps"></div>
-          <div class="journey-view">
-            <div class="screen">
-              <div class="screen-head">
-                <div><h3 id="screenTitle">官网首页</h3><p id="screenSub">客户第一次认识 Dowsure Agent OS。</p></div>
-                <span class="tag" id="screenTag">Website</span>
-              </div>
-              <div class="screen-body" id="screenBody"></div>
-            </div>
-            <aside class="side">
-              <h3 id="sideTitle">客户下一步</h3>
-              <p id="sideText">从官网进入免费诊断。</p>
-              <div class="actions" id="sideActions"></div>
-              <div class="controls">
-                <button class="btn ghost" onclick="prevStage()">上一步</button>
-                <button class="btn" onclick="nextStage()">下一步</button>
-              </div>
+        <div class="section-head"><div class="eyebrow">Product Experience</div><h2>交互 Demo：客户如何真正使用 Agent OS</h2><p>选择一个经营场景，查看卖家如何向 Agent 提问，Agent 如何分析数据、生成行动清单、沉淀 ROI Proof，并推动试用转订阅。</p></div>
+        <div class="demo-shell">
+          <div class="demo-head">
+            <div><strong>Nova Beauty · Agent OS 用户中心</strong><p>Amazon US + Shopify · 月 GMV $92K</p></div>
+            <div class="scenario-tabs" id="scenarioTabs"></div>
+          </div>
+          <div class="workspace">
+            <aside class="sidebar"><div class="side-logo">Dowsure Agent OS</div><div class="side-nav"><div class="active">经营总览</div><div>Agent Brief</div><div>行动清单</div><div>ROI Proof</div><div>订阅管理</div></div></aside>
+            <main class="main-app">
+              <div class="app-bar"><div class="app-title"><h3 id="demoTitle">广告效率分析</h3><p id="demoSub">Spend Agent 正在分析广告和库存节奏。</p></div><div class="store-row"><span class="store">Amazon US</span><span class="store">Shopify</span><span class="store">Ads Connected</span></div></div>
+              <div class="score-grid" id="demoMetrics"></div>
+              <div class="panel"><h4>客户与 Agent 的对话</h4><div class="chat" id="demoChat"></div></div>
+              <div class="panel"><h4>Agent 建议</h4><div class="recommendation" id="demoRecommendation"></div></div>
+              <div class="panel"><h4>行动清单</h4><div class="task-list" id="demoTasks"></div></div>
+            </main>
+            <aside class="right-panel">
+              <h3>本次协同 Agent</h3>
+              <p>系统会按经营场景自动组合 Agent，而不是让客户一次性理解全部能力。</p>
+              <div class="agent-stack" id="demoAgents"></div>
+              <h3 style="margin-top:18px">ROI Proof</h3>
+              <div class="proof" id="demoProof"></div>
+              <button class="btn" style="width:100%;margin-top:14px" onclick="selectJourney(3)">查看订阅路径</button>
             </aside>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="demo-video">
+    <section id="journey">
       <div class="wrap">
-        <div class="section-head">
-          <div class="eyebrow">Demo Video Storyboard</div>
-          <h2>演示视频分镜：页面内自动播放，无需额外视频文件</h2>
-          <p>用于路演或内部评审时快速讲清楚用户旅程。点击播放后，系统会按客户阶段自动切换。</p>
-        </div>
-        <div class="video">
-          <div class="video-head">
-            <strong>Dowsure Agent OS · 90 秒产品旅程</strong>
-            <div>
-              <button class="btn secondary" onclick="togglePlay()" id="playBtn">播放演示</button>
-              <button class="btn ghost" onclick="resetVideo()">重置</button>
-            </div>
+        <div class="section-head"><div class="eyebrow">Conversion Path</div><h2>官网之后的转化路径：每一步都让客户看到价值</h2></div>
+        <div class="journey-lite">
+          <div class="stage-line" id="stageLine"></div>
+          <div class="stage-detail">
+            <div><h3 id="journeyTitle">免费诊断</h3><p id="journeyText">客户用一个低门槛入口先看到 Dowsure 是否理解自己的问题。</p><div class="stage-cards" id="journeyCards"></div></div>
+            <div class="panel"><h4>页面 CTA</h4><p id="journeyCta">开始免费诊断</p><button class="btn" style="width:100%;margin-top:12px" onclick="nextJourney()">下一步</button></div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="video">
+      <div class="wrap">
+        <div class="section-head"><div class="eyebrow">Interactive Demo Video</div><h2>演示视频不讲流程，直接展示产品能力</h2><p>播放后会自动切换场景，展示用户提问、Agent 分析、建议生成和 ROI Proof，而不是简单三步说明。</p></div>
+        <div class="video">
+          <div class="video-head"><strong>Dowsure Agent OS · Product Interaction Demo</strong><div><button class="btn secondary" onclick="togglePlay()" id="playBtn">播放演示</button><button class="btn ghost" onclick="resetVideo()">重置</button></div></div>
           <div class="video-body">
-            <div class="video-stage">
-              <div class="eyebrow" id="videoKicker">Scene 01</div>
-              <h3 id="videoTitle">陌生客户进入官网</h3>
-              <p id="videoText">客户先看到和自己经营相关的问题，而不是复杂产品介绍。官网用案例、行业动态和免费诊断建立第一步信任。</p>
-              <div class="progress"><span id="videoProgress"></span></div>
+            <div class="video-screen">
+              <div class="eyebrow" id="videoKicker">Scene 01</div><h3 id="videoTitle">卖家向 Agent 提问</h3><p id="videoText">客户不是看流程，而是直接问经营问题：广告预算涨了，还要不要继续投？</p>
+              <div class="video-ui" id="videoUi"></div><div class="progress"><span id="videoProgress"></span></div>
             </div>
-            <div class="video-side">
-              <h3 style="color:#fff">讲解重点</h3>
-              <p id="videoNotes">销售或产品演示时先讲客户场景：广告、库存、回款、采购和风险共同影响增长。</p>
-              <div class="actions" id="videoActions"></div>
-            </div>
+            <div class="video-side"><h3 style="color:#fff">能力亮点</h3><p id="videoNotes">Agent 能把广告、库存和回款放在一起判断，而不是只看单一指标。</p><div class="proof" id="videoProof"></div></div>
           </div>
         </div>
       </div>
@@ -343,191 +153,114 @@
 
     <section id="pricing">
       <div class="wrap">
-        <div class="section-head">
-          <div class="eyebrow">Plans</div>
-          <h2>按客户阶段升级，而不是一次性全买</h2>
-          <p>免费诊断建立兴趣，Trial 证明价值，Pro 形成使用习惯，Diamond 承接多平台和复杂经营客户。</p>
-        </div>
+        <div class="section-head"><div class="eyebrow">Plans</div><h2>从试用到订阅，再到高级经营服务</h2></div>
         <div class="pricing">
-          <div class="plan"><h3>Free Check</h3><div class="price">$0</div><p>适合第一次了解 Dowsure 的卖家。</p><ul><li>官网浏览与案例</li><li>免费经营诊断</li><li>注册和资料引导</li></ul><button class="btn secondary" onclick="selectStage(1)">开始诊断</button></div>
-          <div class="plan hot"><h3>Pro</h3><div class="price">推荐</div><p>适合增长中的 SME 卖家。</p><ul><li>核心 Agent 组合</li><li>Weekly Agent Brief</li><li>ROI Proof 与顾问解读</li></ul><button class="btn" onclick="selectStage(7)">升级 Pro</button></div>
-          <div class="plan"><h3>Diamond</h3><div class="price">高级</div><p>适合多平台和复杂经营卖家。</p><ul><li>6 Agent 协同</li><li>专属 Growth Room</li><li>月度复盘和转介绍权益</li></ul><button class="btn dark" onclick="selectStage(8)">查看 Diamond</button></div>
+          <div class="plan"><h3>Free Check</h3><div class="price">$0</div><p>适合第一次了解 Dowsure 的卖家。</p><ul><li>免费经营诊断</li><li>基础 Agent 建议</li><li>注册和店铺连接引导</li></ul><a class="btn secondary" href="#experience">开始体验</a></div>
+          <div class="plan hot"><h3>Pro</h3><div class="price">推荐</div><p>适合增长中的 SME 卖家。</p><ul><li>核心 Agent 组合</li><li>Weekly Agent Brief</li><li>ROI Proof 与顾问解读</li></ul><a class="btn" href="#experience">体验 Pro</a></div>
+          <div class="plan"><h3>Diamond</h3><div class="price">高级</div><p>适合多平台、复杂经营客户。</p><ul><li>6 Agent 协同</li><li>专属 Growth Room</li><li>月度复盘和转介绍权益</li></ul><a class="btn dark" href="#journey">查看升级路径</a></div>
         </div>
       </div>
     </section>
 
     <section id="faq">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="eyebrow">FAQ</div>
-          <h2>客户常见问题</h2>
-        </div>
-        <div class="faq-list">
-          <details open><summary>Dowsure Agent OS 是什么？</summary><p>它是面向跨境卖家的 AI 经营作业系统，帮助卖家从数据里发现经营问题，并生成可执行建议。</p></details>
-          <details><summary>没有连接店铺数据可以体验吗？</summary><p>可以先做免费经营诊断。连接店铺数据后，系统才能给出更准确的分析和 Agent 建议。</p></details>
-          <details><summary>系统会替客户自动做经营决策吗？</summary><p>不会。Agent OS 负责诊断、提醒和建议，关键经营动作仍由客户确认。</p></details>
-          <details><summary>回款提速、账期安排、备货支持什么时候出现？</summary><p>这些不是官网主卖点，而是在 Capital、Deal、Spend 等 Agent 发现具体经营场景后，作为后续评估入口出现。</p></details>
-          <details><summary>什么客户适合升级 Diamond？</summary><p>多平台、多账户、多团队、广告和库存复杂、需要长期经营复盘的客户更适合 Diamond。</p></details>
-        </div>
-      </div>
+      <div class="wrap"><div class="section-head"><div class="eyebrow">FAQ</div><h2>客户常见问题</h2></div><div class="faq-list">
+        <details open><summary>Dowsure Agent OS 是什么？</summary><p>它是面向跨境卖家的 AI 经营系统，帮助卖家从店铺数据里发现问题、生成建议并追踪执行结果。</p></details>
+        <details><summary>不连接店铺数据可以体验吗？</summary><p>可以先做免费诊断。连接店铺后，Agent 才能基于真实数据给出更准确建议。</p></details>
+        <details><summary>Agent 会自动替我操作广告或资金吗？</summary><p>不会。Agent 提供诊断和建议，关键经营动作由客户确认执行。</p></details>
+        <details><summary>回款提速、账期安排、备货支持何时出现？</summary><p>当 Agent 识别到明确的资金、采购或备货场景后，系统才提示对应评估入口。</p></details>
+      </div></div>
     </section>
   </main>
 
-  <footer class="footer">Dowsure Agent OS · Customer Journey Interactive Demo</footer>
+  <footer class="footer">Dowsure Agent OS · Customer-facing Website + Product Interaction Demo</footer>
 
   <script>
-    const stages=[
+    const scenarios=[
       {
-        name:'官网浏览',sub:'认识产品',tag:'Website',title:'Dowsure Agent OS 官网',
-        text:'客户第一次接触 Dowsure，不应先看到复杂功能，而是看到和自己经营相关的问题。',
-        url:'dowsure.com/agent-os',
-        fields:[['6 Agents','核心能力'],['免费诊断','第一入口'],['客户案例','信任建立'],['FAQ','降低顾虑']],
-        panel:'官网负责完成三件事：说明 Agent OS 是什么、适合什么卖家、为什么值得先做免费诊断。',
-        output:'系统不急于让客户付费，而是引导客户进入低门槛经营诊断。',
-        actions:['查看 6 Agent 解决方案','阅读客户案例','点击免费经营诊断']
+        key:'ads',tab:'广告变贵',title:'广告效率分析',sub:'Spend Agent 正在分析广告、SKU 和库存节奏。',
+        metrics:[['+32%','广告预算变化'],['1.8','综合 ROAS'],['21 天','库存覆盖'],['$6.4K','疑似低效花费']],
+        user:'这个月广告花费涨了 32%，我还要继续加预算吗？',
+        agent:'不建议直接加预算。当前广告增长快于库存和回款，继续放量会放大现金压力。建议先暂停 2 个低 ROAS 广告组，把预算转向转化稳定且库存覆盖超过 35 天的 SKU。',
+        rec:'先优化广告结构，再判断是否继续放量。预计可减少无效花费，并避免爆品库存提前断货。',
+        tasks:['暂停低 ROAS 广告组 A12 / B08','把预算转向 SKU-BEA-021','7 天后复盘 ROAS 与库存覆盖'],
+        agents:[['Spend Agent','主导','判断广告和费用效率'],['Insight Agent','协同','识别可放量 SKU'],['Capital Agent','观察','判断放量是否带来资金压力']],
+        proof:[['$6.4K','可疑低效花费'],['2 个','建议暂停广告组'],['7 天','复盘周期']]
       },
       {
-        name:'免费诊断',sub:'低门槛体验',tag:'Free Check',title:'经营诊断问卷',
-        text:'客户输入平台、类目、月 GMV 和当前最头疼的问题，先获得一份基础诊断。',
-        url:'app.dowsure.com/free-check',
-        fields:[['Amazon US','主营平台'],['Beauty','主营类目'],['$90K','月 GMV'],['广告 + 回款','主要压力']],
-        panel:'这里不要求客户一次性买产品，只让客户看到 Dowsure 能理解自己的经营问题。',
-        output:'Insight、Spend、Capital 被系统标记为优先体验 Agent。',
-        actions:['完成 4 个问题','查看诊断摘要','创建账户保存结果']
+        key:'stock',tab:'旺季备货',title:'旺季备货决策',sub:'Insight + Capital 正在分析销售机会和资金窗口。',
+        metrics:[['18 天','爆品库存'],['+41%','近 14 天销量'],['$28K','备货缺口'],['12 天','回款等待']],
+        user:'爆品最近卖得很好，我是不是应该马上补一批货？',
+        agent:'销售信号成立，但补货窗口和回款窗口错位。建议先确认供应商交期，再生成现金流时间表；如果平台回款无法覆盖订金和尾款，再进入备货支持评估。',
+        rec:'可以补货，但不应只看销量。需要同时确认库存、交期、回款和广告放量计划。',
+        tasks:['确认供应商交期和最小起订量','生成 30 天现金流时间表','判断是否进入备货支持评估'],
+        agents:[['Insight Agent','主导','确认增长机会'],['Capital Agent','主导','判断现金流窗口'],['Deal Agent','协同','评估供应商付款节奏']],
+        proof:[['+41%','销量增长'],['$28K','预计缺口'],['30 天','现金流预测']]
       },
       {
-        name:'注册账户',sub:'进入中心',tag:'Account',title:'创建 Dowsure 账户',
-        text:'客户注册后进入自己的用户中心，系统保留诊断结果，并提示下一步完善企业资料。',
-        url:'app.dowsure.com/signup',
-        fields:[['2 分钟','注册时间'],['邮箱/手机号','登录方式'],['1 份','诊断已保存'],['可邀请','运营/财务']],
-        panel:'注册页要强调安全、清晰和继续体验的价值，不要把流程做成资料压力。',
-        output:'客户进入用户中心，看到自己的经营诊断草稿。',
-        actions:['创建账户','保存诊断结果','继续企业资料']
+        key:'supplier',tab:'供应商账期',title:'采购付款压力',sub:'Deal Agent 正在分析订单、采购和付款节奏。',
+        metrics:[['$46K','下月采购'],['30%','订金比例'],['15 天','账期缺口'],['3 家','核心供应商']],
+        user:'供应商要求先付订金，但我平台回款还没到，怎么安排？',
+        agent:'当前采购付款集中在回款前，现金压力来自订金和尾款时间差。建议把 3 家供应商拆成优先级，并评估是否需要账期安排。',
+        rec:'先处理高毛利、高动销 SKU 的供应商付款，低优先级采购延后，避免现金一次性被采购占用。',
+        tasks:['按 SKU 毛利和动销排序供应商','生成采购付款排期','进入账期安排评估'],
+        agents:[['Deal Agent','主导','分析采购与账期'],['Capital Agent','协同','看现金流压力'],['Sentinel Agent','守护','检查资料和服务边界']],
+        proof:[['15 天','账期缺口'],['3 家','供应商排期'],['1 张','付款优先级表']]
       },
       {
-        name:'企业资料',sub:'建立信任',tag:'Verification',title:'企业资料中心',
-        text:'客户补充企业资料，用于账户安全、主体确认和后续服务适配。',
-        url:'app.dowsure.com/company',
-        fields:[['70%','资料进度'],['3 项','待补信息'],['只读','数据权限说明'],['可撤回','授权控制']],
-        panel:'页面不堆叠术语，而是解释每项资料用途、进度和安全边界。',
-        output:'Sentinel Agent 开始检查资料完整度和服务边界。',
-        actions:['补充企业资料','查看数据安全说明','进入店铺连接']
-      },
-      {
-        name:'店铺连接',sub:'获取数据',tag:'Connect',title:'连接店铺经营数据',
-        text:'客户连接店铺后，Agent OS 才能用真实经营数据做分析。',
-        url:'app.dowsure.com/stores',
-        fields:[['Amazon','已连接'],['Shopify','已连接'],['eBay','已连接'],['TikTok Ads','待补充']],
-        panel:'客户看到平台、权限范围、同步进度和最近更新时间，知道系统正在分析什么。',
-        output:'系统生成营收、广告、库存、采购、回款和风险的经营面板。',
-        actions:['连接主要店铺','补充广告数据','生成经营面板']
-      },
-      {
-        name:'经营面板',sub:'看到问题',tag:'Dashboard',title:'AI 经营面板',
-        text:'首页展示的不是空功能，而是基于客户数据生成的经营健康度和优先事项。',
-        url:'app.dowsure.com/dashboard',
-        fields:[['73/100','经营健康度'],['21 天','库存覆盖'],['+32%','广告预算变化'],['$28K','资金缺口提示']],
-        panel:'老板看总览，运营看广告和 SKU，财务看回款和采购，所有角色围绕同一套 Agent Brief 协同。',
-        output:'系统建议先体验 Insight、Spend、Capital 三个 Agent。',
-        actions:['查看今日优先事项','打开 Agent Brief','进入 14 天 Trial']
-      },
-      {
-        name:'Agent Trial',sub:'验证价值',tag:'Trial',title:'14 天 Agent Trial',
-        text:'Trial 阶段目标不是让客户浏览功能，而是证明 Agent 建议可以帮助客户做经营动作。',
-        url:'app.dowsure.com/trial',
-        fields:[['3 个','推荐 Agent'],['5 条','行动建议'],['2 条','已采纳'],['ROI Proof','生成中']],
-        panel:'Insight 找增长机会，Spend 找低效支出，Capital 看回款和备货时间差。',
-        output:'客户看到至少 3 条可执行建议，并预约顾问复盘。',
-        actions:['采纳一条建议','预约顾问解读','查看 ROI Proof']
-      },
-      {
-        name:'Pro 订阅',sub:'形成习惯',tag:'Pro',title:'Pro 订阅升级',
-        text:'当客户认可 Trial 价值后，系统推荐适合的订阅方案和首月成功目标。',
-        url:'app.dowsure.com/upgrade',
-        fields:[['Pro','推荐方案'],['3 Agents','首月组合'],['Weekly','复盘频率'],['1 个月','成功目标']],
-        panel:'订阅卖的是持续经营判断和行动闭环，而不是单次报告。',
-        output:'客户进入付费订阅，客户成功开始推动首月激活。',
-        actions:['确认 Pro 方案','邀请运营/财务','设置首月目标']
-      },
-      {
-        name:'Diamond',sub:'升级复购',tag:'Diamond',title:'Diamond Growth Room',
-        text:'高价值客户进入 6 Agent 协同和专属经营复盘，用月度结果支撑续费、升级和转介绍。',
-        url:'app.dowsure.com/diamond',
-        fields:[['6 Agents','协同分析'],['专属','Growth Room'],['月度','经营复盘'],['Referral','推荐权益']],
-        panel:'Diamond 用户不只是买更多 Agent，而是把 Agent OS 变成经营管理节奏。',
-        output:'系统沉淀案例、价值证明和转介绍线索，形成增长飞轮。',
-        actions:['预约月度复盘','生成经营报告','邀请同行体验']
+        key:'risk',tab:'风险预警',title:'店铺健康与准入准备',sub:'Sentinel Agent 正在检查异常波动和资料完整度。',
+        metrics:[['8.2%','退款率'],['2 项','资料待补'],['中','店铺风险'],['48h','建议处理']],
+        user:'最近退款率上来了，会不会影响后续服务和店铺表现？',
+        agent:'退款率已高于近 90 天均值，且资料有两项缺口。建议先处理异常 SKU 和资料补充，再推进后续服务评估。',
+        rec:'先降低风险和资料阻塞，再进入增长或资金服务，不然会影响评估效率。',
+        tasks:['定位退款异常 SKU','补充企业与店铺资料','48 小时后复查风险等级'],
+        agents:[['Sentinel Agent','主导','监控风险和资料'],['Insight Agent','协同','定位异常 SKU'],['Capital Agent','暂缓','等待风险处理后再评估']],
+        proof:[['8.2%','退款率'],['2 项','资料缺口'],['48h','复查节点']]
       }
     ];
-    const videoScenes=[
-      ['Scene 01','陌生客户进入官网','客户先看到与经营相关的问题：广告、库存、回款、采购和风险。','先讲客户场景，再讲 Agent OS。'],
-      ['Scene 02','免费诊断建立兴趣','客户用 4 个问题获得基础诊断，系统推荐优先体验的 Agent。','低门槛进入，不急于成交。'],
-      ['Scene 03','连接店铺生成面板','用户中心展示基于真实数据生成的经营健康度和优先事项。','产品价值从数据面板开始显性化。'],
-      ['Scene 04','14 天 Trial 验证价值','客户采纳 Agent 建议，系统生成 ROI Proof。','Trial 的目标是证明建议有用。'],
-      ['Scene 05','订阅、升级和转介绍','客户形成 Weekly Agent Brief 使用习惯，进入 Pro 或 Diamond。','收入来自持续使用、续费和增购。']
+    const journeys=[
+      ['免费诊断','用低门槛问题让客户看到 Dowsure 能理解他的经营压力。',[['4 个','诊断问题'],['1 份','基础建议'],['3 分钟','完成时间']],'开始免费诊断'],
+      ['注册账户','保存诊断结果，进入个人用户中心。',[['2 分钟','创建账户'],['1 个','经营档案'],['可邀请','运营/财务']],'创建账户'],
+      ['连接店铺','客户授权后，系统基于真实经营数据生成分析。',[['3 个','已连接平台'],['每日','数据同步'],['只读','权限说明']],'连接店铺'],
+      ['Agent Trial','通过真实建议证明价值，不让客户只看功能。',[['14 天','试用期'],['3 条','可执行建议'],['1 次','顾问复盘']],'开启 Trial'],
+      ['Pro 订阅','客户形成 Weekly Brief 使用习惯。',[['Weekly','Agent Brief'],['ROI','Proof'],['3 Agents','首月组合']],'升级 Pro'],
+      ['Diamond','多平台高价值客户进入长期经营复盘。',[['6 Agents','协同'],['专属','Growth Room'],['Referral','权益']],'查看高级版']
     ];
-    let current=0;
-    let videoIndex=0;
-    let timer=null;
-    function selectStage(i){
-      current=i;
-      renderStage();
-      document.getElementById('journey').scrollIntoView({behavior:'smooth',block:'start'});
+    const videos=[
+      ['Scene 01','客户直接提问','“广告费涨了 32%，还要不要继续加预算？”','Agent 把广告、库存和回款合在一起判断。'],
+      ['Scene 02','Agent 输出建议','“暂停低效广告组，把预算转向库存更安全的 SKU。”','建议不是泛泛而谈，而是落到广告组和 SKU。'],
+      ['Scene 03','客户采纳动作','客户勾选行动清单，系统记录执行时间。','Agent OS 让建议进入执行，而不是停留在报告。'],
+      ['Scene 04','生成 ROI Proof','7 天后系统复盘 ROAS、库存和无效花费变化。','价值证明推动 Trial 转订阅。']
+    ];
+    let scenarioIndex=0,journeyIndex=0,videoIndex=0,timer=null;
+    function renderScenario(){
+      const s=scenarios[scenarioIndex];
+      document.getElementById('scenarioTabs').innerHTML=scenarios.map((x,i)=>`<button class="${i===scenarioIndex?'active':''}" onclick="scenarioIndex=${i};renderScenario()">${x.tab}</button>`).join('');
+      document.getElementById('demoTitle').textContent=s.title;document.getElementById('demoSub').textContent=s.sub;
+      document.getElementById('demoMetrics').innerHTML=s.metrics.map(m=>`<div class="score"><b>${m[0]}</b><span>${m[1]}</span></div>`).join('');
+      document.getElementById('demoChat').innerHTML=`<div class="bubble user">${s.user}</div><div class="bubble agent">${s.agent}</div>`;
+      document.getElementById('demoRecommendation').innerHTML=`<strong>${s.title}</strong><p>${s.rec}</p>`;
+      document.getElementById('demoTasks').innerHTML=s.tasks.map((t,i)=>`<label class="task"><input type="checkbox" ${i===0?'checked':''}><span><b>${t}</b><span>${i===0?'已加入今日任务':'待确认'}</span></span></label>`).join('');
+      document.getElementById('demoAgents').innerHTML=s.agents.map((a,i)=>`<div class="agent-item ${i===0?'active':''}"><b>${a[0]} · ${a[1]}</b><span>${a[2]}</span></div>`).join('');
+      document.getElementById('demoProof').innerHTML=s.proof.map(p=>`<div><b>${p[0]}</b><span>${p[1]}</span></div>`).join('');
     }
-    function nextStage(){
-      current=Math.min(stages.length-1,current+1);
-      renderStage();
+    function renderJourney(){
+      const j=journeys[journeyIndex];
+      document.getElementById('stageLine').innerHTML=journeys.map((x,i)=>`<button class="${i===journeyIndex?'active':''}" onclick="selectJourney(${i})"><b>${x[0]}</b><span>${x[3]}</span></button>`).join('');
+      document.getElementById('journeyTitle').textContent=j[0];document.getElementById('journeyText').textContent=j[1];document.getElementById('journeyCta').textContent=j[3];
+      document.getElementById('journeyCards').innerHTML=j[2].map(c=>`<div class="stage-card"><b>${c[0]}</b><span>${c[1]}</span></div>`).join('');
     }
-    function prevStage(){
-      current=Math.max(0,current-1);
-      renderStage();
-    }
-    function renderStage(){
-      const s=stages[current];
-      document.getElementById('steps').innerHTML=stages.map((x,i)=>`<button class="step ${i===current?'active':''}" onclick="selectStage(${i})"><b>${x.name}</b><span>${x.sub}</span></button>`).join('');
-      document.getElementById('screenTitle').textContent=s.title;
-      document.getElementById('screenSub').textContent=s.text;
-      document.getElementById('screenTag').textContent=s.tag;
-      document.getElementById('screenBody').innerHTML=`
-        <div class="browser-bar"><span class="circle"></span><span class="circle"></span><span class="circle"></span><span class="url">${s.url}</span></div>
-        <div class="stage-grid">${s.fields.map(f=>`<div class="stage-field"><b>${f[0]}</b><span>${f[1]}</span></div>`).join('')}</div>
-        <div class="panel"><h4>页面功能</h4><p>${s.panel}</p></div>
-        <div class="agent-output"><strong>Agent OS 输出</strong><p>${s.output}</p></div>
-      `;
-      document.getElementById('sideTitle').textContent=s.name;
-      document.getElementById('sideText').textContent=s.text;
-      document.getElementById('sideActions').innerHTML=s.actions.map((a,i)=>`<div class="action"><b>${a}</b><small>${i===0?'推荐动作':'可选动作'}</small></div>`).join('');
-    }
+    function selectJourney(i){journeyIndex=i;renderJourney();document.getElementById('journey').scrollIntoView({behavior:'smooth',block:'start'})}
+    function nextJourney(){journeyIndex=Math.min(journeys.length-1,journeyIndex+1);renderJourney()}
     function renderVideo(){
-      const s=videoScenes[videoIndex];
-      document.getElementById('videoKicker').textContent=s[0];
-      document.getElementById('videoTitle').textContent=s[1];
-      document.getElementById('videoText').textContent=s[2];
-      document.getElementById('videoNotes').textContent=s[3];
-      document.getElementById('videoActions').innerHTML=stages.slice(Math.max(0,videoIndex),Math.max(0,videoIndex)+3).map(x=>`<div class="action"><b>${x.name}</b><small>${x.sub}</small></div>`).join('');
-      document.getElementById('videoProgress').style.width=((videoIndex+1)/videoScenes.length*100)+'%';
+      const v=videos[videoIndex];
+      document.getElementById('videoKicker').textContent=v[0];document.getElementById('videoTitle').textContent=v[1];document.getElementById('videoText').textContent=v[2];document.getElementById('videoNotes').textContent=v[3];document.getElementById('videoProgress').style.width=((videoIndex+1)/videos.length*100)+'%';
+      const s=scenarios[videoIndex%scenarios.length];
+      document.getElementById('videoUi').innerHTML=`<div class="chat"><div class="bubble user">${s.user}</div><div class="bubble agent">${s.agent}</div></div><div class="recommendation" style="margin-top:12px"><strong>Agent 建议</strong><p>${s.rec}</p></div>`;
+      document.getElementById('videoProof').innerHTML=s.proof.map(p=>`<div><b>${p[0]}</b><span>${p[1]}</span></div>`).join('');
     }
-    function togglePlay(){
-      if(timer){
-        clearInterval(timer);
-        timer=null;
-        document.getElementById('playBtn').textContent='播放演示';
-        return;
-      }
-      document.getElementById('playBtn').textContent='暂停演示';
-      timer=setInterval(()=>{
-        videoIndex=(videoIndex+1)%videoScenes.length;
-        renderVideo();
-      },2400);
-    }
-    function resetVideo(){
-      if(timer){clearInterval(timer);timer=null}
-      videoIndex=0;
-      document.getElementById('playBtn').textContent='播放演示';
-      renderVideo();
-    }
-    renderStage();
-    renderVideo();
+    function togglePlay(){if(timer){clearInterval(timer);timer=null;document.getElementById('playBtn').textContent='播放演示';return}document.getElementById('playBtn').textContent='暂停演示';timer=setInterval(()=>{videoIndex=(videoIndex+1)%videos.length;renderVideo()},2600)}
+    function resetVideo(){if(timer){clearInterval(timer);timer=null}videoIndex=0;document.getElementById('playBtn').textContent='播放演示';renderVideo()}
+    renderScenario();renderJourney();renderVideo();
   </script>
 </body>
 </html>
