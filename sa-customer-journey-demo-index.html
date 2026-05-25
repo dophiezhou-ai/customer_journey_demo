@@ -43,6 +43,7 @@
     .tag{display:inline-flex;border-radius:8px;padding:4px 8px;background:var(--red-soft);color:var(--red);font-size:11px;font-weight:1000;margin-bottom:10px}.tag.green{background:#e7f8f0;color:var(--green)}.tag.orange{background:#fff4e6;color:var(--orange)}.tag.blue{background:#eaf1ff;color:var(--blue)}.tag.purple{background:#f3edff;color:var(--purple)}
     .dark-band{background:#101828;color:#fff}.dark-band h2,.dark-band h3{color:#fff}.dark-band p{color:#cbd5e1}.agent-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);border-radius:14px;padding:20px}.agent-card .tag{background:rgba(255,255,255,.1);color:#fff}
     .signal{display:flex;align-items:flex-start;gap:12px}.signal-icon{width:34px;height:34px;border-radius:10px;background:var(--red-soft);color:var(--red);display:grid;place-items:center;font-weight:1000;flex:0 0 auto}
+    .diagnosis{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}.diagnosis-grid{display:grid;grid-template-columns:minmax(0,1fr) 380px}.diag-form{padding:20px}.diag-section{margin-bottom:18px}.diag-section h3{margin-bottom:10px}.options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.option{border:1px solid var(--line);background:#f8fafc;border-radius:12px;padding:12px;text-align:left;color:#344054;font-weight:850}.option span{display:block;margin-top:4px;font-size:12px;color:#667085;font-weight:600}.option.active{border-color:#ff9dbc;background:#fff1f6;color:#9f123f}.diag-report{background:#101828;color:#fff;padding:20px}.diag-report h3,.diag-report h4{color:#fff}.diag-report p{color:#dbe4f0;font-size:13px}.diag-score{font-size:42px;line-height:1;color:#fff;font-weight:1000;margin:12px 0}.diag-list{display:grid;gap:10px;margin:14px 0}.diag-list div{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:11px}.diag-list b{display:block;color:#fff}.diag-list span{font-size:12px;color:#cbd5e1}
     .demo-shell{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
     .demo-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line);background:#fff}.demo-head p{font-size:13px}
     .scenario-tabs{display:flex;gap:8px;flex-wrap:wrap}.scenario-tabs button,.journey-tabs button{border:1px solid var(--line);background:#f8fafc;border-radius:999px;padding:7px 11px;font-weight:850;color:#475467;font-size:13px}.scenario-tabs button.active,.journey-tabs button.active{background:#111827;border-color:#111827;color:#fff}
@@ -60,7 +61,7 @@
     .video{background:#101828;color:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}.video-head{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.12)}.video-head strong{font-size:14px}.video-body{display:grid;grid-template-columns:minmax(0,1fr) 320px}.video-screen{min-height:400px;background:linear-gradient(135deg,#0b1220,#18233a);padding:18px}.video-screen h3{color:#fff;font-size:24px}.video-screen p{color:#dbe4f0;font-size:14px}.video-ui{background:#fff;color:#101828;border-radius:14px;margin-top:14px;padding:14px}.video-ui .bubble{font-size:13px;color:#172033}.video-ui .bubble.user{color:#fff}.video-side{background:#0f172a;padding:17px;border-left:1px solid rgba(255,255,255,.12)}.video-side p{color:#dbe4f0;font-size:13px}.progress{height:7px;background:rgba(255,255,255,.14);border-radius:999px;overflow:hidden;margin-top:14px}.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--red),#ff6b72);transition:.25s}
     .pricing{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.plan{background:#fff;border:1px solid var(--line);border-radius:15px;padding:22px;box-shadow:0 10px 30px rgba(16,24,40,.05)}.plan.hot{border-color:#ff9dbc;background:#fffafd}.price{font-size:28px;color:var(--red);font-weight:1000;margin:9px 0}.plan ul{margin:14px 0 18px;padding-left:18px;color:#475467}.plan li{margin:7px 0}
     .faq-list{display:grid;gap:10px;grid-template-columns:repeat(2,minmax(0,1fr))}details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:15px}summary{cursor:pointer;font-weight:900;color:#172033}details p{margin-top:9px;font-size:14px;color:#344054}.footer{padding:34px 0;text-align:center;color:#667085;font-size:13px}
-    @media(max-width:1120px){.hero-grid,.workspace,.journey-body,.video-body{grid-template-columns:1fr}.right-panel{border-left:0;border-top:1px solid var(--line)}.sidebar{display:none}.journey-left{border-right:0;border-bottom:1px solid var(--line)}.four{grid-template-columns:repeat(2,1fr)}}@media(max-width:900px){.links{display:none}.top-inner{height:auto;padding:12px 0;align-items:flex-start}.wrap{padding:0 16px}.three,.two,.pricing,.score-grid,.form-grid,.faq-list{grid-template-columns:1fr}h1{font-size:34px}.hero{padding-top:42px}.top-actions .btn.secondary{display:none}}@media(max-width:680px){.product{display:none}.hero-actions .btn{width:100%}.metric-grid,.four{grid-template-columns:1fr}}
+    @media(max-width:1120px){.hero-grid,.workspace,.journey-body,.video-body,.diagnosis-grid{grid-template-columns:1fr}.right-panel{border-left:0;border-top:1px solid var(--line)}.sidebar{display:none}.journey-left{border-right:0;border-bottom:1px solid var(--line)}.four{grid-template-columns:repeat(2,1fr)}}@media(max-width:900px){.links{display:none}.top-inner{height:auto;padding:12px 0;align-items:flex-start}.wrap{padding:0 16px}.three,.two,.pricing,.score-grid,.form-grid,.faq-list,.options{grid-template-columns:1fr}h1{font-size:34px}.hero{padding-top:42px}.top-actions .btn.secondary{display:none}}@media(max-width:680px){.product{display:none}.hero-actions .btn{width:100%}.metric-grid,.four{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -77,9 +78,9 @@
       <div class="wrap hero-grid">
         <div>
           <div class="eyebrow">AI Operating System for Cross-border Sellers</div>
-          <h1>把店铺数据，变成每天可执行的经营建议</h1>
-          <p class="lead">Dowsure Agent OS 连接你的店铺经营数据，持续关注销售、广告、库存、回款、采购和风险变化，把复杂报表变成每日可执行建议。</p>
-          <div class="hero-actions"><a class="btn" href="#journey">开始免费诊断</a><a class="btn secondary" href="#demo">查看产品预览</a></div>
+          <h1>广告越投越贵，库存和回款总是错位？</h1>
+          <p class="lead">Dowsure Agent OS 连接你的店铺经营数据，帮你看清今天最该处理的广告、库存、回款、采购和风险问题，并生成可执行行动清单。</p>
+          <div class="hero-actions"><a class="btn" href="#journey">3 分钟免费诊断</a><a class="btn secondary" href="mobile-agent-os-demo.html">手机体验 Demo</a><a class="btn secondary" href="user-center-demo.html">进入用户中心预览</a></div>
           <div class="trust"><span>跨平台经营分析</span><span>每日 Agent Brief</span><span>14 天 Trial</span><span>行动结果复盘</span></div>
         </div>
         <div class="hero-card">
@@ -126,7 +127,7 @@
 
     <section id="demo">
       <div class="wrap">
-        <div class="section-head"><div class="eyebrow">Inside Dowsure</div><h2>一个首页，看清今天最值得处理的经营问题</h2><p>进入 Dowsure 后，你会看到销售、广告、库存、回款和风险的集中提醒，也可以直接向 Agent 提问。</p><p style="margin-top:12px"><a class="btn secondary" href="user-center-demo.html">打开完整用户中心</a></p></div>
+        <div class="section-head"><div class="eyebrow">Inside Dowsure</div><h2>一个首页，看清今天最值得处理的经营问题</h2><p>进入 Dowsure 后，你会看到销售、广告、库存、回款和风险的集中提醒，也可以直接向 Agent 提问。</p><p style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap"><a class="btn secondary" href="user-center-demo.html">打开完整用户中心</a><a class="btn secondary" href="mobile-agent-os-demo.html">打开手机体验</a></p></div>
         <div class="demo-shell">
           <div class="demo-head">
             <div><strong>Nova Beauty · Dowsure 用户中心</strong><p>Amazon US + Shopify · 月销售额 $92K · 已开启 Trial</p></div>
@@ -156,12 +157,47 @@
 
     <section id="journey">
       <div class="wrap">
-        <div class="section-head"><div class="eyebrow">How It Works</div><h2>从一次免费诊断开始</h2><p>先回答几个经营问题，保存诊断结果，再连接店铺进入个人经营中心。</p></div>
-        <div class="journey-box">
-          <div class="journey-head"><div><strong>开始使用 Dowsure</strong><p>免费诊断 → 创建账户 → 连接店铺 → Trial → Pro → Diamond</p></div><button class="btn secondary" onclick="nextJourney()">下一步</button></div>
-          <div class="journey-body">
-            <div class="journey-left"><div class="journey-tabs" id="journeyTabs"></div></div>
-            <div class="journey-screen" id="journeyScreen"></div>
+        <div class="section-head"><div class="eyebrow">Free Check</div><h2>先做一次免费经营诊断</h2><p>选择你的平台、销售阶段和当前最头疼的问题，Dowsure 会推荐适合先体验的 Agent 组合。</p></div>
+        <div class="diagnosis">
+          <div class="diagnosis-grid">
+            <div class="diag-form">
+              <div class="diag-section">
+                <h3>你主要在哪个平台经营？</h3>
+                <div class="options" data-group="platform">
+                  <button class="option active" onclick="chooseDiag('platform','Amazon US')">Amazon US<span>适合广告、库存、回款分析</span></button>
+                  <button class="option" onclick="chooseDiag('platform','Amazon + Shopify')">Amazon + Shopify<span>适合多渠道经营分析</span></button>
+                  <button class="option" onclick="chooseDiag('platform','eBay / Walmart')">eBay / Walmart<span>适合订单和库存节奏分析</span></button>
+                  <button class="option" onclick="chooseDiag('platform','TikTok / Shopee')">TikTok / Shopee<span>适合增长波动和备货判断</span></button>
+                </div>
+              </div>
+              <div class="diag-section">
+                <h3>你现在最想解决什么？</h3>
+                <div class="options" data-group="pain">
+                  <button class="option active" onclick="chooseDiag('pain','广告变贵')">广告变贵<span>Spend Agent 优先分析</span></button>
+                  <button class="option" onclick="chooseDiag('pain','旺季备货')">旺季备货<span>Insight + Capital 协同</span></button>
+                  <button class="option" onclick="chooseDiag('pain','回款慢')">回款慢<span>Capital Agent 优先分析</span></button>
+                  <button class="option" onclick="chooseDiag('pain','供应商账期')">供应商账期<span>Deal Agent 优先分析</span></button>
+                </div>
+              </div>
+              <div class="diag-section">
+                <h3>你目前大概月销售额？</h3>
+                <div class="options" data-group="gmv">
+                  <button class="option" onclick="chooseDiag('gmv','$10K-$50K')">$10K-$50K<span>适合 Free Check / Starter</span></button>
+                  <button class="option active" onclick="chooseDiag('gmv','$50K-$150K')">$50K-$150K<span>适合 Trial / Pro</span></button>
+                  <button class="option" onclick="chooseDiag('gmv','$150K-$300K')">$150K-$300K<span>适合多 Agent 组合</span></button>
+                  <button class="option" onclick="chooseDiag('gmv','$300K+')">$300K+<span>适合 Diamond 评估</span></button>
+                </div>
+              </div>
+              <div class="screen-actions"><button class="btn" onclick="renderDiagnosis(true)">生成诊断结果</button><a class="btn ghost" href="user-center-demo.html">直接看用户中心</a></div>
+            </div>
+            <div class="diag-report">
+              <div class="eyebrow">Your Report</div>
+              <h3>Nova Beauty 经营诊断</h3>
+              <div class="diag-score" id="diagScore">82</div>
+              <p id="diagSummary">你的广告放量、库存覆盖和回款窗口存在错位，建议先体验 Spend Agent + Capital Agent。</p>
+              <div class="diag-list" id="diagList"></div>
+              <a class="btn" style="width:100%;margin-top:8px" href="user-center-demo.html">查看完整用户中心</a>
+            </div>
           </div>
         </div>
       </div>
@@ -187,9 +223,9 @@
       <div class="wrap">
         <div class="section-head"><div class="eyebrow">Plans</div><h2>从免费诊断开始，按经营复杂度升级</h2></div>
         <div class="pricing">
-          <div class="plan"><h3>Free Check</h3><div class="price">$0</div><p>适合第一次了解 Dowsure 的卖家。</p><ul><li>免费经营诊断</li><li>基础 Agent 建议</li><li>注册和店铺连接引导</li></ul><a class="btn secondary" href="#journey" onclick="selectJourney(0)">开始诊断</a></div>
+          <div class="plan"><h3>Free Check</h3><div class="price">$0</div><p>适合第一次了解 Dowsure 的卖家。</p><ul><li>免费经营诊断</li><li>基础 Agent 建议</li><li>注册和店铺连接引导</li></ul><a class="btn secondary" href="#journey">开始诊断</a></div>
           <div class="plan hot"><h3>Pro</h3><div class="price">推荐</div><p>适合增长中的跨境卖家。</p><ul><li>核心 Agent 组合</li><li>Weekly Agent Brief</li><li>行动清单与结果复盘</li></ul><a class="btn" href="#demo">体验 Pro</a></div>
-          <div class="plan"><h3>Diamond</h3><div class="price">高级</div><p>适合多平台、复杂经营客户。</p><ul><li>6 Agent 协同</li><li>专属经营复盘</li><li>多平台增长和资金效率管理</li></ul><a class="btn dark" href="#journey" onclick="selectJourney(5)">查看高级版</a></div>
+          <div class="plan"><h3>Diamond</h3><div class="price">高级</div><p>适合多平台、复杂经营客户。</p><ul><li>6 Agent 协同</li><li>专属经营复盘</li><li>多平台增长和资金效率管理</li></ul><a class="btn dark" href="user-center-demo.html">查看高级版</a></div>
         </div>
       </div>
     </section>
@@ -223,13 +259,11 @@
       {key:'risk',tab:'风险预警',title:'店铺健康与准入准备',sub:'Sentinel Agent 正在检查异常波动和资料完整度。',metrics:[['8.2%','退款率'],['2 项','资料待补'],['中','店铺风险'],['48h','建议处理']],user:'最近退款率上来了，会不会影响后续服务和店铺表现？',agent:'退款率已高于近 90 天均值，且资料有两项缺口。建议先处理异常 SKU 和资料补充，再推进后续服务评估。',rec:'先降低风险和资料阻塞，再进入增长或资金服务，不然会影响评估效率。',tasks:['定位退款异常 SKU','补充企业与店铺资料','48 小时后复查风险等级'],agents:[['Sentinel Agent','主导','监控风险和资料'],['Insight Agent','协同','定位异常 SKU'],['Capital Agent','暂缓','等待风险处理后再评估']],proof:[['8.2%','退款率'],['2 项','资料缺口'],['48h','复查节点']]}
     ];
     const journeys=[
-      {name:'免费诊断',sub:'3 分钟看到经营问题',title:'选择你当前最想解决的问题',desc:'卖家先选择平台、类目和当前经营压力，系统给出基础诊断和适合体验的 Agent。',fields:[['主营平台','Amazon US / Shopify'],['当前月销售额','$80K - $120K'],['主要问题','广告变贵、库存压力'],['推荐体验','Spend + Capital']],cta:'生成免费诊断'},
-      {name:'创建账户',sub:'保存诊断结果',title:'创建 Dowsure 账户',desc:'卖家保存诊断结果，并邀请运营或财务成员一起查看经营建议。',fields:[['账户名称','Nova Beauty'],['团队成员','老板 / 运营 / 财务'],['诊断报告','已保存'],['下一步','连接店铺']],cta:'创建账户'},
-      {name:'连接店铺',sub:'进入真实数据分析',title:'连接你的经营数据',desc:'连接店铺后，系统开始同步销售、广告、库存、订单和账户相关经营信号。',fields:[['Amazon US','已连接'],['Shopify','已连接'],['广告数据','已连接'],['同步状态','每日更新']],cta:'进入经营面板'},
-      {name:'Agent Trial',sub:'14 天体验建议是否有用',title:'Trial 首日经营面板',desc:'Agent 生成每日 Brief、问题解释和行动清单，客户开始验证建议是否可执行。',fields:[['今日建议','3 条'],['协同 Agent','Spend / Capital / Insight'],['顾问复盘','已预约'],['试用剩余','14 天']],cta:'开启 Trial'},
-      {name:'Pro 订阅',sub:'形成每周使用习惯',title:'升级 Pro',desc:'客户已经看到建议价值，开始使用 Weekly Agent Brief、行动清单和结果复盘。',fields:[['首月目标','降低低效广告花费'],['每周复盘','自动生成'],['团队协作','3 人'],['订阅状态','Pro Active']],cta:'升级 Pro'},
-      {name:'Diamond',sub:'多平台高级经营服务',title:'Diamond 经营复盘室',desc:'多平台客户使用 6 Agent 协同，获得更完整的增长、资金、风险和经营效率复盘。',fields:[['协同 Agent','6 个'],['平台数量','4 个'],['月度复盘','专属会议'],['推荐权益','已开启']],cta:'申请 Diamond'}
+      {name:'免费诊断',fields:[['主营平台','Amazon US'],['当前月销售额','$50K - $150K'],['主要问题','广告变贵、库存压力'],['推荐体验','Spend + Capital']]},
+      {name:'创建账户',fields:[['账户名称','Nova Beauty'],['诊断报告','已保存'],['下一步','连接店铺']]},
+      {name:'连接店铺',fields:[['Amazon US','已连接'],['Shopify','已连接'],['广告数据','已连接']]},
     ];
+    const diagnosis={platform:'Amazon US',pain:'广告变贵',gmv:'$50K-$150K'};
     const videos=[
       ['Scene 01','进入官网','先选择与你最接近的经营问题：广告、库存、回款、采购或多平台管理。','从熟悉的问题开始了解 Dowsure。'],
       ['Scene 02','完成免费诊断','选择平台、类目、销售规模和当前最头疼的问题。','获得基础诊断和推荐体验的 Agent 组合。'],
@@ -240,7 +274,7 @@
       ['Scene 07','生成结果复盘','7 天后系统复盘 ROAS、库存覆盖和可疑低效花费变化。','Trial 有了可展示的价值证据。'],
       ['Scene 08','升级订阅','客户订阅 Pro，复杂多平台客户可升级 Diamond。','长期价值来自每周 Brief、持续建议和结果复盘。']
     ];
-    let scenarioIndex=0,journeyIndex=0,videoIndex=0,timer=null;
+    let scenarioIndex=0,videoIndex=0,timer=null;
     function renderScenario(){
       const s=scenarios[scenarioIndex];
       document.getElementById('scenarioTabs').innerHTML=scenarios.map((x,i)=>`<button class="${i===scenarioIndex?'active':''}" onclick="scenarioIndex=${i};renderScenario()">${x.tab}</button>`).join('');
@@ -252,19 +286,39 @@
       document.getElementById('demoAgents').innerHTML=s.agents.map((a,i)=>`<div class="agent-item ${i===0?'active':''}"><b>${a[0]} · ${a[1]}</b><span>${a[2]}</span></div>`).join('');
       document.getElementById('demoProof').innerHTML=s.proof.map(p=>`<div><b>${p[0]}</b><span>${p[1]}</span></div>`).join('');
     }
-    function renderJourney(){
-      const j=journeys[journeyIndex];
-      document.getElementById('journeyTabs').innerHTML=journeys.map((x,i)=>`<button class="${i===journeyIndex?'active':''}" onclick="selectJourney(${i})"><b>${x.name}</b><span>${x.sub}</span></button>`).join('');
-      document.getElementById('journeyScreen').innerHTML=`<div class="screen-card"><div class="screen-title"><b>${j.title}</b><span>Dowsure</span></div><div class="screen-content"><p>${j.desc}</p><div class="form-grid" style="margin-top:14px">${j.fields.map(f=>`<div class="field"><label>${f[0]}</label><strong>${f[1]}</strong></div>`).join('')}</div><div class="screen-actions"><button class="btn">${j.cta}</button><button class="btn ghost" onclick="nextJourney()">下一步</button></div></div></div>`;
+    function chooseDiag(group,value){
+      diagnosis[group]=value;
+      document.querySelectorAll(`[data-group="${group}"] .option`).forEach(btn=>btn.classList.toggle('active',btn.textContent.includes(value)));
+      renderDiagnosis(false);
     }
-    function selectJourney(i){journeyIndex=i;renderJourney();document.getElementById('journey').scrollIntoView({behavior:'smooth',block:'start'})}
-    function nextJourney(){journeyIndex=Math.min(journeys.length-1,journeyIndex+1);renderJourney()}
+    function diagnosisAgents(){
+      const map={
+        '广告变贵':['Spend Agent','Capital Agent','先看广告效率，再判断放量是否带来现金压力。'],
+        '旺季备货':['Insight Agent','Capital Agent','先确认销售机会，再判断库存、回款和补货窗口。'],
+        '回款慢':['Capital Agent','Treasury Agent','先看平台回款和现金流时间表，再判断资金效率。'],
+        '供应商账期':['Deal Agent','Capital Agent','先看供应商付款排期，再判断账期和现金缺口。']
+      };
+      return map[diagnosis.pain] || map['广告变贵'];
+    }
+    function renderDiagnosis(scroll){
+      const agents=diagnosisAgents();
+      const score=diagnosis.gmv==='$300K+'?91:diagnosis.gmv==='$150K-$300K'?88:diagnosis.gmv==='$50K-$150K'?82:74;
+      document.getElementById('diagScore').textContent=score;
+      document.getElementById('diagSummary').textContent=`你在 ${diagnosis.platform} 的主要问题是${diagnosis.pain}。建议先体验 ${agents[0]} + ${agents[1]}，${agents[2]}`;
+      document.getElementById('diagList').innerHTML=[
+        ['优先 Agent',`${agents[0]} + ${agents[1]}`],
+        ['建议动作','先生成经营 Brief，再进入用户中心查看行动清单'],
+        ['适合路径',score>=88?'Pro Trial，后续可评估 Diamond':'Free Check → 14 天 Trial → Pro'],
+        ['预计价值','减少无效判断时间，让广告、库存、回款和采购动作更一致']
+      ].map(x=>`<div><b>${x[0]}</b><span>${x[1]}</span></div>`).join('');
+      if(scroll) document.getElementById('journey').scrollIntoView({behavior:'smooth',block:'center'});
+    }
     function renderVideo(){
       const v=videos[videoIndex],s=scenarios[videoIndex%scenarios.length];
       document.getElementById('videoKicker').textContent=v[0];document.getElementById('videoTitle').textContent=v[1];document.getElementById('videoText').textContent=v[2];document.getElementById('videoNotes').textContent=v[3];document.getElementById('videoProgress').style.width=((videoIndex+1)/videos.length*100)+'%';
       if(videoIndex<3){
         const j=journeys[videoIndex];
-        document.getElementById('videoUi').innerHTML=`<div class="screen-card"><div class="screen-title"><b>${j.title}</b><span>${j.name}</span></div><div class="screen-content"><div class="form-grid">${j.fields.map(f=>`<div class="field"><label>${f[0]}</label><strong>${f[1]}</strong></div>`).join('')}</div></div></div>`;
+        document.getElementById('videoUi').innerHTML=`<div class="screen-card"><div class="screen-title"><b>${j.name}</b><span>Dowsure</span></div><div class="screen-content"><div class="form-grid">${j.fields.map(f=>`<div class="field"><label>${f[0]}</label><strong>${f[1]}</strong></div>`).join('')}</div></div></div>`;
         document.getElementById('videoProof').innerHTML=j.fields.slice(0,3).map(f=>`<div><b>${f[1]}</b><span>${f[0]}</span></div>`).join('');
       }else{
         document.getElementById('videoUi').innerHTML=`<div class="chat"><div class="bubble user">${s.user}</div><div class="bubble agent">${s.agent}</div></div><div class="recommendation" style="margin-top:12px"><strong>Agent 建议</strong><p>${s.rec}</p></div>`;
@@ -273,7 +327,7 @@
     }
     function togglePlay(){if(timer){clearInterval(timer);timer=null;document.getElementById('playBtn').textContent='播放导览';return}document.getElementById('playBtn').textContent='暂停导览';timer=setInterval(()=>{videoIndex=(videoIndex+1)%videos.length;renderVideo()},2600)}
     function resetVideo(){if(timer){clearInterval(timer);timer=null}videoIndex=0;document.getElementById('playBtn').textContent='播放导览';renderVideo()}
-    renderScenario();renderJourney();renderVideo();
+    renderScenario();renderDiagnosis(false);renderVideo();
   </script>
 </body>
 </html>

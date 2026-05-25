@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Dowsure Agent OS · Mobile Demo</title>
+  <style>
+    :root{--red:#e91257;--pink:#fff1f6;--ink:#101828;--text:#475467;--muted:#667085;--line:#d8e0eb;--bg:#f6f8fb;--dark:#101828;--green:#078455;--orange:#b54708;--blue:#175cd3}
+    *{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#101828 0%,#1e293b 42%,#f6f8fb 42%);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",Arial,sans-serif;color:var(--ink);line-height:1.5}button,input{font:inherit}button{cursor:pointer}p,h1,h2,h3,h4{margin:0}a{text-decoration:none;color:inherit}
+    .page{min-height:100vh;padding:18px;display:grid;place-items:start center}.phone{width:min(430px,100%);background:#f8fafc;border:1px solid rgba(255,255,255,.2);border-radius:34px;box-shadow:0 28px 80px rgba(15,23,42,.38);overflow:hidden;min-height:860px;position:relative}.screen{min-height:860px;background:#f8fafc;display:flex;flex-direction:column}
+    .status{height:32px;background:#101828;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 20px;font-size:12px;font-weight:800}.top{background:#101828;color:#fff;padding:16px 18px 18px}.brand{display:flex;align-items:center;justify-content:space-between;gap:10px}.logo{display:flex;align-items:center;gap:10px}.mark{width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,var(--red),#ff6b72);display:grid;place-items:center;font-weight:1000}.brand b{display:block}.brand span{font-size:12px;color:#cbd5e1}.chip{border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:6px 9px;font-size:11px;color:#e5e7eb}.headline{margin-top:18px}.headline h1{font-size:24px;line-height:1.16;color:#fff}.headline p{font-size:13px;color:#cbd5e1;margin-top:8px}
+    .content{padding:14px 14px 90px;flex:1;overflow:auto}.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:0 8px 24px rgba(16,24,40,.05);margin-bottom:12px}.card h3{font-size:16px;margin-bottom:8px}.card p{font-size:13px;color:var(--text)}.metric-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.metric{background:#fff;border:1px solid var(--line);border-radius:15px;padding:12px}.metric b{display:block;color:var(--red);font-size:23px;line-height:1}.metric span{font-size:12px;color:var(--muted)}
+    .quick{display:flex;gap:8px;overflow:auto;padding-bottom:4px;margin-bottom:10px}.quick button{border:1px solid var(--line);background:#fff;color:#475467;border-radius:999px;padding:9px 12px;font-weight:850;font-size:13px;white-space:nowrap}.quick button.active{background:#101828;color:#fff;border-color:#101828}
+    .brief{border-left:4px solid var(--red);background:#fff8fb;border-top:1px solid #ffcddd;border-right:1px solid #ffcddd;border-bottom:1px solid #ffcddd;border-radius:0 15px 15px 0;padding:13px;margin-bottom:12px}.brief b{display:block;color:#8a123f}.brief p{font-size:13px;color:#172033;font-weight:650;margin-top:5px}
+    .chat{display:grid;gap:10px}.bubble{padding:11px 12px;border-radius:16px;max-width:90%;font-size:13px}.bubble.user{justify-self:end;background:#101828;color:#fff}.bubble.agent{justify-self:start;background:#fff;border:1px solid #cbd5e1;color:#172033}.suggestions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.suggestions button{border:1px solid #ffcddd;background:#fff;color:#9f123f;border-radius:12px;padding:10px;font-size:12px;font-weight:900;text-align:left}
+    .task{display:grid;grid-template-columns:26px 1fr;gap:9px;align-items:start;border:1px solid var(--line);border-radius:13px;background:#fff;padding:11px;margin-bottom:8px}.task b{display:block;font-size:13px}.task span{font-size:12px;color:#667085}.task input{margin-top:3px}.agent-row{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;border:1px solid var(--line);border-radius:13px;background:#fff;padding:11px;margin-bottom:8px}.agent-row b{display:block;font-size:13px}.agent-row span{font-size:12px;color:#667085}.agent-row em{font-style:normal;background:#e7f8f0;color:#078455;border-radius:999px;padding:4px 7px;font-size:11px;font-weight:900}
+    .cta{display:flex;gap:9px}.btn{border:0;border-radius:12px;background:linear-gradient(90deg,var(--red),#ff6b72);color:#fff;font-weight:1000;padding:12px 14px;display:inline-flex;align-items:center;justify-content:center;text-align:center}.btn.secondary{background:#fff;color:var(--red);border:1px solid #ffcddd}.btn.dark{background:#101828;color:#fff}.btn.block{width:100%}
+    .bottom{position:absolute;left:0;right:0;bottom:0;background:rgba(255,255,255,.96);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);padding:8px 8px 12px;backdrop-filter:blur(14px)}.bottom button{border:0;background:transparent;border-radius:12px;padding:8px 4px;color:#667085;font-size:11px;font-weight:850}.bottom button.active{background:var(--pink);color:var(--red)}
+    .view{display:none}.view.active{display:block}.inputbar{display:flex;gap:8px;margin-top:10px}.inputbar input{flex:1;border:1px solid var(--line);border-radius:999px;padding:11px 13px;background:#fff}.inputbar button{border:0;border-radius:999px;background:#101828;color:#fff;padding:0 14px;font-weight:900}
+    @media(min-width:760px){.page{padding-top:34px}.phone{min-height:840px}.screen{min-height:840px}.content{max-height:720px}.hint{display:block}}.hint{max-width:430px;color:#e5e7eb;margin-bottom:12px;font-size:13px;text-align:center}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="hint">Mobile Agent OS Demo · 可以直接发给客户体验，建议用手机打开</div>
+    <div class="phone">
+      <div class="screen">
+        <div class="status"><span>9:41</span><span>Dowsure Agent OS</span><span>100%</span></div>
+        <header class="top">
+          <div class="brand">
+            <div class="logo"><span class="mark">D</span><div><b>Nova Beauty</b><span>Amazon US + Shopify 已连接</span></div></div>
+            <span class="chip">Trial 11 天</span>
+          </div>
+          <div class="headline"><h1 id="headline">今天先处理广告和库存错位</h1><p id="subline">Agent 已发现广告预算上升、库存覆盖下降、回款窗口后移。</p></div>
+        </header>
+        <main class="content">
+          <section class="view active" id="home">
+            <div class="quick" id="scenarioBtns"></div>
+            <div class="metric-grid" id="metrics"></div>
+            <div class="brief" id="brief"></div>
+            <div class="card">
+              <h3>今日建议动作</h3>
+              <div id="homeTasks"></div>
+              <div class="cta" style="margin-top:12px"><button class="btn block" onclick="go('chat')">问 Agent</button><button class="btn secondary block" onclick="go('tasks')">执行任务</button></div>
+            </div>
+          </section>
+
+          <section class="view" id="chat">
+            <div class="card">
+              <h3>和 Agent 对话</h3>
+              <div class="chat" id="chatBox"></div>
+              <div class="suggestions">
+                <button onclick="ask('广告费涨了，还要继续加预算吗？')">广告费涨了，还要继续加预算吗？</button>
+                <button onclick="ask('爆品库存只够 18 天，要不要补货？')">爆品库存只够 18 天，要不要补货？</button>
+                <button onclick="ask('供应商要求付订金，怎么安排？')">供应商要求付订金，怎么安排？</button>
+                <button onclick="ask('最近退款率上升，会影响服务吗？')">最近退款率上升，会影响服务吗？</button>
+              </div>
+              <div class="inputbar"><input id="question" placeholder="输入你的经营问题"><button onclick="askInput()">发送</button></div>
+            </div>
+            <div class="brief" id="chatRec"></div>
+          </section>
+
+          <section class="view" id="tasks">
+            <div class="card"><h3>行动清单</h3><p>把 Agent 建议变成今天可以执行的动作。</p></div>
+            <div id="taskList"></div>
+            <button class="btn block" onclick="go('proof')">查看执行后复盘</button>
+          </section>
+
+          <section class="view" id="agents">
+            <div class="card"><h3>推荐 Agent 组合</h3><p>系统按当前经营问题自动组合 Agent，不需要一次性购买全部能力。</p></div>
+            <div id="agentList"></div>
+            <button class="btn block" onclick="go('chat')">向 Agent 提问</button>
+          </section>
+
+          <section class="view" id="proof">
+            <div class="card"><h3>7 天结果复盘</h3><p>系统记录建议是否被采纳，以及经营指标的变化。</p></div>
+            <div class="metric-grid" id="proofMetrics"></div>
+            <div class="brief"><b>升级建议</b><p>你已经连续使用 Spend + Capital 场景，适合开启 Pro 订阅，获得 Weekly Agent Brief 和结果复盘。</p></div>
+            <div class="cta"><button class="btn block">开启 Pro</button><a class="btn secondary block" href="sa-customer-journey-demo-index.html">返回官网</a></div>
+          </section>
+        </main>
+        <nav class="bottom">
+          <button class="active" onclick="go('home')">首页</button>
+          <button onclick="go('chat')">对话</button>
+          <button onclick="go('tasks')">任务</button>
+          <button onclick="go('agents')">Agent</button>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const scenarios=[
+      {
+        key:'ads',label:'广告变贵',headline:'今天先处理广告和库存错位',subline:'Agent 已发现广告预算上升、库存覆盖下降、回款窗口后移。',
+        metrics:[['+32%','广告预算变化'],['1.8','综合 ROAS'],['21 天','库存覆盖'],['$6.4K','疑似低效花费']],
+        brief:['Spend Agent 建议','先暂停 2 个低 ROAS 广告组，把预算转向库存覆盖更安全的 SKU。'],
+        tasks:['暂停广告组 A12 / B08','把预算转向 SKU-BEA-021','7 天后复盘 ROAS 与库存覆盖'],
+        agents:[['Spend Agent','主导','判断广告和费用效率'],['Capital Agent','协同','判断放量是否带来资金压力'],['Insight Agent','辅助','识别可继续放量的 SKU']],
+        proof:[['$6.4K','低效花费已识别'],['2 个','广告组已暂停'],['+0.4','ROAS 改善'],['9 天','库存覆盖提升']]
+      },
+      {
+        key:'stock',label:'旺季备货',headline:'爆品销售成立，但补货窗口紧张',subline:'Agent 已发现销量上涨、库存覆盖降低、备货资金缺口。',
+        metrics:[['18 天','爆品库存'],['+41%','近 14 天销量'],['$28K','备货缺口'],['12 天','回款等待']],
+        brief:['Capital Agent 建议','可以补货，但先确认供应商交期和现金流时间表，避免订金与回款窗口错位。'],
+        tasks:['确认供应商交期','生成 30 天现金流表','判断是否进入备货支持评估'],
+        agents:[['Insight Agent','主导','确认增长机会'],['Capital Agent','主导','判断现金流窗口'],['Deal Agent','协同','评估供应商付款节奏']],
+        proof:[['+41%','销量增长'],['$28K','缺口已测算'],['30 天','现金流预测'],['3 项','补货动作']]
+      },
+      {
+        key:'supplier',label:'账期压力',headline:'供应商付款集中，现金占用偏高',subline:'Agent 已发现订金、尾款和平台回款之间存在时间差。',
+        metrics:[['$46K','下月采购'],['30%','订金比例'],['15 天','账期缺口'],['3 家','核心供应商']],
+        brief:['Deal Agent 建议','按 SKU 毛利、动销和库存风险排序供应商付款，低优先级采购延后。'],
+        tasks:['供应商按优先级排序','生成采购付款排期','评估账期安排入口'],
+        agents:[['Deal Agent','主导','分析采购与账期'],['Capital Agent','协同','看现金流压力'],['Sentinel Agent','守护','检查资料和服务边界']],
+        proof:[['15 天','账期缺口'],['3 家','供应商排期'],['1 张','付款表'],['2 项','风险提醒']]
+      }
+    ];
+    let current=0;
+    function s(){return scenarios[current]}
+    function render(){
+      const x=s();
+      document.getElementById('headline').textContent=x.headline;
+      document.getElementById('subline').textContent=x.subline;
+      document.getElementById('scenarioBtns').innerHTML=scenarios.map((v,i)=>`<button class="${i===current?'active':''}" onclick="current=${i};render()">${v.label}</button>`).join('');
+      document.getElementById('metrics').innerHTML=x.metrics.map(m=>`<div class="metric"><b>${m[0]}</b><span>${m[1]}</span></div>`).join('');
+      document.getElementById('brief').innerHTML=`<b>${x.brief[0]}</b><p>${x.brief[1]}</p>`;
+      document.getElementById('homeTasks').innerHTML=x.tasks.map((t,i)=>`<label class="task"><input type="checkbox" ${i===0?'checked':''}><span><b>${t}</b><span>${i===0?'已加入今日任务':'待确认'}</span></span></label>`).join('');
+      document.getElementById('taskList').innerHTML=x.tasks.map((t,i)=>`<label class="task"><input type="checkbox" ${i<2?'checked':''}><span><b>${t}</b><span>${x.agents[Math.min(i,x.agents.length-1)][0]} 推荐</span></span></label>`).join('');
+      document.getElementById('agentList').innerHTML=x.agents.map(a=>`<div class="agent-row"><div><b>${a[0]} · ${a[1]}</b><span>${a[2]}</span></div><em>Active</em></div>`).join('');
+      document.getElementById('proofMetrics').innerHTML=x.proof.map(m=>`<div class="metric"><b>${m[0]}</b><span>${m[1]}</span></div>`).join('');
+      resetChat();
+    }
+    function resetChat(){
+      const x=s();
+      document.getElementById('chatBox').innerHTML=`<div class="bubble user">${x.label}怎么处理？</div><div class="bubble agent">${x.brief[1]}</div>`;
+      document.getElementById('chatRec').innerHTML=`<b>Agent 建议</b><p>${x.tasks.join('；')}。</p>`;
+    }
+    function ask(q){
+      const answer=s().brief[1]+' 建议先执行：'+s().tasks[0]+'。';
+      document.getElementById('chatBox').innerHTML+=`<div class="bubble user">${q}</div><div class="bubble agent">${answer}</div>`;
+      document.getElementById('chatRec').innerHTML=`<b>下一步</b><p>${s().tasks.join('；')}。</p>`;
+    }
+    function askInput(){const input=document.getElementById('question'); if(input.value.trim()){ask(input.value.trim()); input.value='';}}
+    function go(id){
+      document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===id));
+      document.querySelectorAll('.bottom button').forEach(btn=>btn.classList.remove('active'));
+      const idx={home:0,chat:1,tasks:2,agents:3,proof:2}[id]||0;
+      document.querySelectorAll('.bottom button')[idx].classList.add('active');
+    }
+    render();
+  </script>
+</body>
+</html>

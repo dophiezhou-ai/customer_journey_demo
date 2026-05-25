@@ -29,15 +29,44 @@
   <div class="app">
     <aside class="side">
       <div class="brand"><span class="mark">D</span><div><b>Dowsure</b><span>Agent OS 用户中心</span></div></div>
-      <div class="nav" id="nav"></div>
+      <div class="nav" id="nav">
+        <button class="active" onclick="showPage('dashboard')"><span>经营总览</span><small>今日优先</small></button>
+        <button onclick="showPage('stores')"><span>店铺连接</span><small>数据状态</small></button>
+        <button onclick="showPage('agents')"><span>6 大 Agent</span><small>能力中心</small></button>
+        <button onclick="showPage('brief')"><span>Agent Brief</span><small>每日建议</small></button>
+        <button onclick="showPage('tasks')"><span>行动清单</span><small>执行追踪</small></button>
+        <button onclick="showPage('capital')"><span>资金机会</span><small>回款/备货</small></button>
+        <button onclick="showPage('proof')"><span>结果复盘</span><small>ROI Proof</small></button>
+        <button onclick="showPage('subscription')"><span>订阅账单</span><small>Pro / Diamond</small></button>
+        <button onclick="showPage('help')"><span>帮助中心</span><small>FAQ</small></button>
+      </div>
       <div class="side-card"><b>Trial 还剩 11 天</b><p>完成 3 条 Agent 建议并生成一次结果复盘，即可解锁 Pro 推荐方案。</p><button class="btn" onclick="showPage('subscription')">查看订阅</button></div>
     </aside>
     <main class="main">
       <header class="top">
         <input class="search" value="搜索 SKU、订单、Agent 建议或行动任务" aria-label="搜索">
-        <div class="top-actions"><span class="pill">Amazon US 已连接</span><span class="pill">Shopify 已连接</span><a class="pill" href="sa-customer-journey-demo-index.html">返回官网</a><span class="avatar">N</span></div>
+        <div class="top-actions"><span class="pill">Amazon US 已连接</span><span class="pill">Shopify 已连接</span><a class="pill" href="mobile-agent-os-demo.html">手机体验</a><a class="pill" href="sa-customer-journey-demo-index.html">返回官网</a><span class="avatar">N</span></div>
       </header>
-      <div class="content" id="content"></div>
+      <div class="content" id="content">
+        <div class="hero">
+          <div><div class="eyebrow">Today Overview</div><h1>Nova Beauty 的今日经营总览</h1><p class="lead">系统已同步 Amazon US、Shopify、广告和订单数据。今天最值得处理的是广告效率、库存覆盖和备货资金节奏。</p></div>
+          <div><button class="btn" onclick="showPage('brief')">查看今日 Brief</button></div>
+        </div>
+        <div class="grid four">
+          <div class="card metric"><b>$92K</b><span>近 30 天销售额</span></div>
+          <div class="card metric"><b>+32%</b><span>广告预算变化</span></div>
+          <div class="card metric"><b>21 天</b><span>核心 SKU 库存覆盖</span></div>
+          <div class="card metric"><b>$28K</b><span>备货资金缺口</span></div>
+        </div>
+        <div class="grid two" style="margin-top:14px">
+          <div class="panel"><div class="panel-head"><div><h2>今日 Agent Brief</h2><p>按影响程度排序</p></div></div><div class="brief">
+            <div class="brief-item hot"><b>广告放量与库存窗口错位</b><p>建议暂停 2 个低效广告组，先保护爆品库存覆盖。</p></div>
+            <div class="brief-item"><b>备货资金缺口约 $28K</b><p>建议生成 30 天现金流表，再判断是否进入备货支持评估。</p></div>
+            <div class="brief-item"><b>退款率高于近 90 天均值</b><p>建议定位异常 SKU，并补充资料后复查。</p></div>
+          </div></div>
+          <div class="panel"><div class="panel-head"><div><h2>向 Agent 提问</h2><p>可以直接问经营问题</p></div></div><div class="chat"><div class="bubble user">广告费涨了 32%，我还要继续加预算吗？</div><div class="bubble agent">不建议直接加预算。建议先暂停低 ROAS 广告组，把预算转向库存更安全的 SKU。</div></div></div>
+        </div>
+      </div>
     </main>
   </div>
 
@@ -87,6 +116,11 @@
           <div class="brief-item"><b>备货资金缺口约 $28K</b><p>建议生成 30 天现金流表，再判断是否进入备货支持评估。</p></div>
           <div class="brief-item"><b>退款率高于近 90 天均值</b><p>建议定位异常 SKU，并补充资料后复查。</p></div>
         </div></div>
+      </div>
+      <div class="grid three" style="margin-top:14px">
+        <div class="card"><span class="tag">下一步</span><h3>完成 3 条行动</h3><p>暂停低效广告组、确认补货交期、生成现金流表。</p><button class="btn secondary" onclick="showPage('tasks')">去执行</button></div>
+        <div class="card"><span class="tag orange">资金机会</span><h3>备货缺口 $28K</h3><p>先生成现金流时间表，再判断是否需要回款或备货支持评估。</p><button class="btn secondary" onclick="showPage('capital')">查看机会</button></div>
+        <div class="card"><span class="tag green">订阅建议</span><h3>适合 Pro Trial</h3><p>你已有广告、库存和回款三个连续使用场景。</p><button class="btn secondary" onclick="showPage('subscription')">查看方案</button></div>
       </div>`;
     }
     function stores(){return shell('Connected Stores','店铺连接状态','连接后，Dowsure 会把销售、广告、库存、订单、账户和风险信号同步到经营中心。','<button class="btn">连接新店铺</button>')+
