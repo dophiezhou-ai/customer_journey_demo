@@ -76,7 +76,7 @@
     function shell(kicker,title,desc,actions=''){return `<div class="hero"><div><div class="eyebrow">${kicker}</div><h1>${title}</h1><p class="lead">${desc}</p></div><div>${actions}</div></div>`}
     function metricCards(){return `<div class="grid four">${state.metrics.map(m=>`<div class="card metric"><b>${m[0]}</b><span>${m[1]}</span></div>`).join('')}</div>`}
     function dashboard(){
-      return shell('Today Overview','Nova Beauty 的今日经营总览','系统已同步 Amazon US、Shopify、广告和订单数据。今天最值得处理的是广告效率、库存覆盖和备货资金节奏。','<button class="btn" onclick="showPage(\\'brief\\')">查看今日 Brief</button>')+
+      return shell('Today Overview','Nova Beauty 的今日经营总览','系统已同步 Amazon US、Shopify、广告和订单数据。今天最值得处理的是广告效率、库存覆盖和备货资金节奏。',`<button class="btn" onclick="showPage('brief')">查看今日 Brief</button>`)+
       metricCards()+
       `<div class="grid two" style="margin-top:14px">
         <div class="panel"><div class="panel-head"><div><h2>销售与支出趋势</h2><p>近 30 天经营信号</p></div><button class="btn ghost" onclick="showPage('agents')">问 Agent</button></div><div class="bars">
@@ -95,10 +95,10 @@
       </tbody></table>`}
     function agents(){return shell('Agent Center','6 大 Agent 能力中心','每个 Agent 负责一个经营场景。你可以直接选择问题，也可以从经营总览里的提醒进入对应 Agent。')+
       `<div class="agent-grid">${state.agents.map((a,i)=>`<div class="agent"><span class="tag ${['','green','orange','blue','purple',''][i]}">${a[0]}</span><h3>${a[1]}</h3><p>${a[2]}</p><button class="btn secondary" onclick="openAgent('${a[0]}','${a[1]}')">${a[3]}</button></div>`).join('')}</div>`}
-    function brief(){return shell('Agent Brief','今日 Agent Brief','Dowsure 将店铺数据整理成每日经营提醒，让老板、运营和财务围绕同一份建议协作。','<button class="btn" onclick="showPage(\\'tasks\\')">生成行动清单</button>')+
+    function brief(){return shell('Agent Brief','今日 Agent Brief','Dowsure 将店铺数据整理成每日经营提醒，让老板、运营和财务围绕同一份建议协作。',`<button class="btn" onclick="showPage('tasks')">生成行动清单</button>`)+
       `<div class="grid two"><div class="panel"><h2>向 Agent 提问</h2><div class="chat" style="margin-top:12px"><div class="bubble user">广告费涨了 32%，我还要继续加预算吗？</div><div class="bubble agent">不建议直接加预算。广告增长快于库存和回款，继续放量会放大现金压力。建议先暂停低 ROAS 广告组，把预算转向库存更安全的 SKU。</div></div><div class="rec" style="margin-top:12px"><strong>Agent 建议</strong><p>先优化广告结构，再判断是否继续放量。7 天后复盘 ROAS、库存覆盖和可疑低效花费。</p></div></div>
       <div class="panel"><h2>建议依据</h2><div class="brief" style="margin-top:12px"><div class="brief-item"><b>广告预算 +32%</b><p>预算上升，但综合 ROAS 降至 1.8。</p></div><div class="brief-item"><b>核心 SKU 库存 21 天</b><p>库存覆盖低于安全阈值，不适合盲目放量。</p></div><div class="brief-item"><b>回款等待 12 天</b><p>补货与回款窗口存在错位。</p></div></div></div></div>`}
-    function tasks(){return shell('Action List','今日行动清单','每条建议都要变成可执行动作，并在复盘时验证是否真的带来经营改善。','<button class="btn" onclick="showPage(\\'proof\\')">查看结果复盘</button>')+
+    function tasks(){return shell('Action List','今日行动清单','每条建议都要变成可执行动作，并在复盘时验证是否真的带来经营改善。',`<button class="btn" onclick="showPage('proof')">查看结果复盘</button>`)+
       `<div class="grid">${state.tasks.map((t,i)=>`<label class="task"><input type="checkbox" ${i<2?'checked':''}><div><b>${t[0]}</b><span>${t[1]} 推荐</span></div><div class="due">${t[2]}</div></label>`).join('')}</div>`}
     function capital(){return shell('Capital Opportunities','资金机会中心','当 Agent 识别到回款、备货或供应商账期压力时，系统会提示评估入口。客户先看到经营判断，再进入对应服务评估。')+
       `<div class="grid three"><div class="card"><span class="tag">回款窗口</span><h3>平台回款等待 12 天</h3><p>建议评估回款提速是否能覆盖广告与补货窗口。</p><button class="btn secondary">查看回款评估</button></div><div class="card"><span class="tag orange">备货缺口</span><h3>预计缺口 $28K</h3><p>爆品销售成立，但订金和尾款时间点早于平台回款。</p><button class="btn secondary">生成现金流表</button></div><div class="card"><span class="tag blue">供应商账期</span><h3>3 家供应商待排期</h3><p>建议按毛利、动销和库存风险调整付款优先级。</p><button class="btn secondary">查看账期建议</button></div></div>`}
@@ -110,7 +110,7 @@
       `<div class="grid two"><div class="card"><h3>如何连接店铺？</h3><p>进入店铺连接，选择平台，按页面提示完成授权或数据连接。</p></div><div class="card"><h3>Agent 会自动操作吗？</h3><p>不会。Agent 提供诊断、建议和行动清单，关键动作由客户确认执行。</p></div><div class="card"><h3>如何判断建议是否有效？</h3><p>查看结果复盘，系统会记录建议采纳后的指标变化。</p></div><div class="card"><h3>如何升级订阅？</h3><p>进入订阅与账单，查看 Trial 使用情况和 Pro / Diamond 推荐。</p></div></div>`}
     const pages={dashboard,stores,agents,brief,tasks,capital,proof,subscription,help};
     function showPage(p){state.page=p;navHtml();document.getElementById('content').innerHTML=pages[p]();window.scrollTo({top:0,behavior:'smooth'})}
-    function openAgent(name,area){state.page='brief';navHtml();document.getElementById('content').innerHTML=shell(name,area+'分析','你正在查看 '+name+' 的建议。系统会结合店铺经营数据，生成问题解释、行动清单和复盘指标。','<button class="btn" onclick="showPage(\\'tasks\\')">生成行动清单</button>')+brief().replace(/^[\s\S]*?<div class="grid two">/,'<div class="grid two">')}
+    function openAgent(name,area){state.page='brief';navHtml();document.getElementById('content').innerHTML=shell(name,area+'分析','你正在查看 '+name+' 的建议。系统会结合店铺经营数据，生成问题解释、行动清单和复盘指标。',`<button class="btn" onclick="showPage('tasks')">生成行动清单</button>`)+brief().replace(/^[\s\S]*?<div class="grid two">/,'<div class="grid two">')}
     navHtml();showPage('dashboard');
   </script>
 </body>
